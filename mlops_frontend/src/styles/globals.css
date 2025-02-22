@@ -2,53 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
-    /* Light Theme - Tech Innovator Palette */
-    --background: 0 0% 100%;        /* #FFFFFF (Crisp foundation) */
-    --foreground: 240 8% 20%;       /* #33323A (Deep slate) */
-    --card: 240 7% 97%;            /* #F5F5F7 (Soft tech gray) */
-    --card-foreground: 240 8% 20%;
+    /* Light Mode - Monochrome with Vibrant Accents */
+    --background: 0 0% 100%;        /* Pure White */
+    --foreground: 0 0% 10%;         /* Almost Black */
+    --card: 0 0% 98%;               /* Soft White */
+    --card-foreground: 0 0% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 8% 20%;
-    --primary: 247 100% 39%;       /* #1400C6 (Electric Blue from SR7) */
+    --popover-foreground: 0 0% 10%;
+    
+    --primary: 235, 86%, 65%;       /* Neon Blue */
     --primary-foreground: 0 0% 100%;
-    --secondary: 170 79% 40%;      /* #0FC2A3 (Topaz Green - SR1) */
-    --secondary-foreground: 0 0% 100%;
-    --muted: 240 5% 92%;           /* #EBECF0 (Ethereal Blue SR5) */
-    --muted-foreground: 240 5% 40%;
-    --accent: 292 84% 60%;         /* #C93FFC (Digital Lavender SR4) */
-    --accent-foreground: 0 0% 100%;
-    --destructive: 4 90% 60%;      /* #FF4D4D (Softer Red SR12) */
-    --destructive-foreground: 0 0% 100%;
-    --border: 240 7% 90%;          /* #E4E5E9 */
-    --input: 240 7% 95%;
-    --ring: 247 100% 39%;          /* Match primary */
-    --radius: 0.75rem;             /* Modern rounded corners */
+
+    --success: 140 90% 40%;        /* Vibrant Green */
+    --success-foreground: 0 0% 100%;
+
+    --warning: 40 100% 50%;        /* Bright Yellow */
+    --warning-foreground: 0 0% 10%;
+
+    --danger: 0 85% 50%;           /* Bold Red */
+    --danger-foreground: 0 0% 100%;
+
+    --muted: 0 0% 90%;             /* Light Gray */
+    --muted-foreground: 0 0% 40%;
+
+    --border: 0 0% 85%;            /* Soft Gray */
+    --input: 0 0% 95%;
+    --ring: 250 100% 50%;          /* Match Primary */
+
+    --radius: 0.5rem;              /* Slightly rounded corners */
   }
 
   .dark {
-    /* Dark Theme - Cyberpunk Fusion */
-    --background: 240 8% 8%;        /* #141418 (Deep space) */
-    --foreground: 240 7% 90%;
-    --card: 240 7% 12%;            /* #1F1F25 */
-    --card-foreground: 240 7% 90%;
-    --popover: 240 8% 10%;
-    --popover-foreground: 240 7% 90%;
-    --primary: 247 100% 60%;       /* #4D4DFF (Glowing blue) */
+    /* Dark Mode - Inverted Black & White with Neon Accents */
+    --background: 0 0% 8%;         /* True Black */
+    --foreground: 0 0% 90%;        /* Light Gray */
+    --card: 0 0% 12%;              /* Dark Gray */
+    --card-foreground: 0 0% 90%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 90%;
+
+    --primary: 235, 86%, 65%;       /* Electric Blue */
     --primary-foreground: 0 0% 100%;
-    --secondary: 170 79% 45%;      /* #00D3B0 (Neon aqua) */
-    --secondary-foreground: 240 8% 8%;
-    --muted: 240 7% 20%;           /* #2E2E35 */
-    --muted-foreground: 240 5% 60%;
-    --accent: 292 84% 70%;         /* #D46AFF (Vibrant purple) */
-    --accent-foreground: 240 8% 8%;
-    --destructive: 4 90% 55%;      /* #FF3D3D (Alert red) */
-    --destructive-foreground: 0 0% 100%;
-    --border: 240 7% 20%;
-    --input: 240 7% 25%;
-    --ring: 247 100% 60%;
+
+    --success: 140 100% 45%;       /* Neon Green */
+    --success-foreground: 0 0% 100%;
+
+    --warning: 40 100% 55%;        /* Bright Yellow */
+    --warning-foreground: 0 0% 10%;
+
+    --danger: 0 90% 55%;           /* Intense Red */
+    --danger-foreground: 0 0% 100%;
+
+    --muted: 0 0% 20%;             /* Deep Gray */
+    --muted-foreground: 0 0% 60%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 25%;
+    --ring: 250 100% 60%;          /* Match Primary */
   }
 }
 

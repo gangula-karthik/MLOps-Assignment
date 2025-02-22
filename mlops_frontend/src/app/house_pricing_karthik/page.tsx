@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <main className="h-screen w-full flex items-center justify-center">
       <div className="w-96 h-96">
-        <Tabs aria-label="Options" color="primary" variant="solid" radius="lg" size="lg">
-          <Tab key="photos" title="Photos">
+        <Tabs aria-label="Options" color="primary" variant="solid" radius="full" size="sm">
+          <Tab key="single" title="one-piece-flow">
             <Card>
               <CardBody>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -18,20 +18,12 @@ export default function Home() {
               </CardBody>
             </Card>
           </Tab>
-          <Tab key="music" title="Music">
+          <Tab key="batch" title="batch-processing">
             <Card>
               <CardBody>
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
                 ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                 cillum dolore eu fugiat nulla pariatur.
-              </CardBody>
-            </Card>
-          </Tab>
-          <Tab key="videos" title="Videos">
-            <Card>
-              <CardBody>
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum.
               </CardBody>
             </Card>
           </Tab>
