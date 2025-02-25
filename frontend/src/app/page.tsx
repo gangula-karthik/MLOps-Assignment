@@ -1,26 +1,57 @@
 "use client"
 
-import type React from "react"
-import { Card, CardBody, CardHeader } from "@heroui/card";
+import React from "react"
+import { Card, CardBody, CardHeader } from "@heroui/card"
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
 import { FaHome, FaCar, FaTractor, FaRocket, FaYoutube, FaGithub } from "react-icons/fa"
 import Link from "next/link"
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-full flex flex-col items-center justify-center p-6 bg-background text-foreground">
-      <div className="w-full max-w-6xl space-y-12">
-        <header className="text-center space-y-4">
-          <h1 className="text-5xl font-extrabold">MLOps Assignment</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A modern landing page showcasing three core features: Housing, Car Sales, and Farmer Analytics.
+    <main className="min-h-screen w-full flex flex-col items-center justify-center p-6 md:p-12 bg-background">
+      <div className="w-full max-w-6xl space-y-16">
+        {/* Hero Section */}
+        <header className="text-center space-y-6">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+            MLOps Assignment
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            A modern platform showcasing three powerful ML models for real-world applications.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            By Karthik, Weijun, and Gabriel
           </p>
         </header>
 
-        <section className="mt-12">
-          <Card>
-            <CardHeader>Project Resources</CardHeader>
-            <CardBody>
+        {/* Features Section */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <FeatureCard
+            icon={<FaHome className="text-4xl text-blue-500" />}
+            title="House Price Prediction"
+            description="Built by Gangula Karthik to analyze market trends and predict real estate pricing with high accuracy."
+            href="/house_pricing_karthik"
+          />
+          <FeatureCard
+            icon={<FaCar className="text-4xl text-green-500" />}
+            title="Vehicle Sales Prediction"
+            description="Built by Choy Wei Jun to forecast automotive market performance and optimize inventory management."
+            href="/car_sales_weijun"
+          />
+          <FeatureCard
+            icon={<FaTractor className="text-4xl text-yellow-500" />}
+            title="Wheat Type Prediction"
+            description="Built by Gabriel Loh classification algorithms to identify wheat varieties for agricultural optimization."
+            href="/wheat_type_gabriel"
+          />
+        </section>
+
+        {/* Resources Section */}
+        <section className="mt-16">
+          <Card className="border border-border overflow-hidden shadow-md">
+            <CardHeader className="bg-muted/50 border-b border-border font-semibold text-lg px-6 py-4">
+              Project Resources
+            </CardHeader>
+            <CardBody className="p-6">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <ResourceLink href="https://deployed-link.com" icon={<FaRocket />} text="Deployed App" />
                 <ResourceLink href="https://youtube.com" icon={<FaYoutube />} text="YouTube Demo" />
@@ -28,24 +59,6 @@ export default function Home() {
               </div>
             </CardBody>
           </Card>
-        </section>
-
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <FeatureCard
-            icon={<FaHome className="text-5xl text-primary" />}
-            title="House Price Prediction"
-            description="Analyzing market trends and pricing for real estate."
-          />
-          <FeatureCard
-            icon={<FaCar className="text-5xl text-secondary" />}
-            title="Car Sales Prediction"
-            description="Predicting car prices and sales performance."
-          />
-          <FeatureCard
-            icon={<FaTractor className="text-5xl text-accent" />}
-            title="Wheat Type Prediction"
-            description="Optimizing agricultural production and supply chains."
-          />
         </section>
       </div>
     </main>
@@ -56,17 +69,22 @@ interface FeatureCardProps {
   icon: React.ReactNode
   title: string
   description: string
+  href: string
 }
 
-function FeatureCard({ icon, title, description }: FeatureCardProps) {
+function FeatureCard({ icon, title, description, href }: FeatureCardProps) {
   return (
-    <Card>
-      <CardBody className="p-6 flex flex-col items-center text-center space-y-4">
-        <div className="p-3 rounded-full bg-muted">{icon}</div>
-        <h2 className="text-2xl font-semibold">{title}</h2>
-        <p className="text-muted-foreground">{description}</p>
-      </CardBody>
-    </Card>
+    <Link href={href} className="group">
+      <Card className="h-full border border-border overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-primary/20 group-hover:transform group-hover:-translate-y-1">
+        <CardBody className="p-8 flex flex-col items-center text-center space-y-5">
+          <div className="p-4 rounded-full bg-muted/50 border border-border group-hover:bg-primary/10 group-hover:border-primary/20 transition-colors duration-300">
+            {icon}
+          </div>
+          <h2 className="text-xl md:text-2xl font-semibold">{title}</h2>
+          <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{description}</p>
+        </CardBody>
+      </Card>
+    </Link>
   )
 }
 
@@ -80,11 +98,12 @@ function ResourceLink({ href, icon, text }: ResourceLinkProps) {
   return (
     <Link
       href={href}
-      className="flex items-center space-x-2 p-3 bg-card text-card-foreground rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-3 p-4 bg-card rounded-lg border border-border shadow-sm hover:border-primary/30 hover:shadow-md transition-all duration-300"
     >
-      <span className="text-xl">{icon}</span>
+      <span className="text-xl text-primary">{icon}</span>
       <span className="font-medium">{text}</span>
     </Link>
   )
 }
-
