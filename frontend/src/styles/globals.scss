@@ -1,44 +1,44 @@
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Geist';
   src:
-    local('Roboto-Thin'),
-    url('../assets/fonts/Roboto-Thin.woff2') format('woff2'),
-    url('../assets/fonts/Roboto-Thin.woff') format('woff');
+    local('Geist-Thin'),
+    url('../assets/fonts/Geist-Thin.woff2') format('woff2'),
+    url('../assets/fonts/Geist-Thin.woff') format('woff');
   font-weight: 300;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Geist';
   src:
-    local('Roboto-Regular'),
-    url('../assets/fonts/Roboto-Regular.woff2') format('woff2'),
-    url('../assets/fonts/Roboto-Regular.woff') format('woff');
+    local('Geist-Regular'), 
+    url('../assets/fonts/Geist-Regular.woff2') format('woff2'),
+    url('../assets/fonts/Geist-Regular.woff') format('woff');
   font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Geist';
   src:
-    local('Roboto-Medium'),
-    url('../assets/fonts/Roboto-Medium.woff2') format('woff2'),
-    url('../assets/fonts/Roboto-Medium.woff') format('woff');
+    local('Geist-Medium'),
+    url('../assets/fonts/Geist-Medium.woff2') format('woff2'),
+    url('../assets/fonts/Geist-Medium.woff') format('woff');
   font-weight: 600;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Geist';
   src:
-    local('Roboto-Bold'),
-    url('../assets/fonts/Roboto-Bold.woff2') format('woff2'),
-    url('../assets/fonts/Roboto-Bold.woff') format('woff');
+    local('Geist-Bold'),
+    url('../assets/fonts/Geist-Bold.woff2') format('woff2'),
+    url('../assets/fonts/Geist-Bold.woff') format('woff');
   font-weight: 900;
   font-display: swap;
 }
 
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 400;
 }
