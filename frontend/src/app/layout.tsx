@@ -6,6 +6,8 @@ import React from 'react';
 import type { Metadata, Viewport } from 'next';
 import type { PropsWithChildren } from 'react';
 
+import { GeistSans } from 'geist/font/sans';
+
 import config from '_config';
 
 import Navbar from '@/components/navbar';
@@ -27,7 +29,7 @@ type TRootLayout = PropsWithChildren;
 
 export default function RootLayout({ children }: TRootLayout) {
   return (
-    <html lang='en' suppressHydrationWarning>
+    <html lang='en' suppressHydrationWarning className={GeistSans.className}>
       <body>
         <RootProvider>
           <div className='grid min-h-[100dvh] grid-rows-[auto_1fr_auto]'>
