@@ -21,7 +21,7 @@ export default function Home() {
     Bedroom2: "",
     Bathroom: "",
     Car: "",
-    Landsize: "",
+    Landsize: "", 
     YearBuilt: "",
     CouncilArea: "",
     Lattitude: "",
@@ -72,20 +72,51 @@ export default function Home() {
     'Wilson', 'Win', 'Wood', 'Woodards', 'Xynergy', 'YPA', 'Zahn',
     'buyMyplace', 'hockingstuart', 'hockingstuart/Advantage',
     'hockingstuart/Barry', 'hockingstuart/Village', 'iOne',
-    'iProperty', 'iSell', 'iTRAK'].map((seller) => ({ label: seller, key: seller }));
+    'iProperty', 'iSell', 'iTRAK'].map(seller => ({
+      label: seller,
+      value: seller
+    }));
 
-
-    const CouncilAreas = ['Banyule', 'Bayside', 'Boroondara', 'Brimbank', 'Cardinia',
-      'Casey', 'Darebin', 'Frankston', 'Glen Eira', 'Greater Dandenong',
-      'Hobsons Bay', 'Hume', 'Kingston', 'Knox', 'Macedon Ranges',
-      'Manningham', 'Maribyrnong', 'Maroondah', 'Melbourne', 'Melton',
-      'Monash', 'Moonee Valley', 'Moorabool', 'Moreland', 'Nillumbik',
-      'Port Phillip', 'Stonnington', 'Unavailable', 'Whitehorse',
-      'Whittlesea', 'Wyndham', 'Yarra', 'Yarra Ranges'].map((CouncilArea) => ({ label: CouncilArea, key: CouncilArea }));
+  const CouncilAreas = ['Banyule', 'Bayside', 'Boroondara', 'Brimbank', 'Cardinia',
+    'Casey', 'Darebin', 'Frankston', 'Glen Eira', 'Greater Dandenong',
+    'Hobsons Bay', 'Hume', 'Kingston', 'Knox', 'Macedon Ranges',
+    'Manningham', 'Maribyrnong', 'Maroondah', 'Melbourne', 'Melton',
+    'Monash', 'Moonee Valley', 'Moorabool', 'Moreland', 'Nillumbik',
+    'Port Phillip', 'Stonnington', 'Unavailable', 'Whitehorse',
+    'Whittlesea', 'Wyndham', 'Yarra', 'Yarra Ranges'].map(area => ({
+      label: area,
+      value: area
+    }));
 
   // Handle input changes
-  const handleInputChange = (e: { target: { name: any; value: any; }; }) => {
-    const { name, value } = e.target;
+  const handleInputChange = (e: any) => {
+    console.log(e);
+
+    const name = e.target?.name || e;
+    const value = e.target?.value || e;
+
+    // Convert date to dd/mm/yyyy format if the field is Date
+    if (name === "Date" && value) {
+      const date = new Date(value);
+      const formattedDate = date.toLocaleDateString('en-AU', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+      setFormValues({
+        ...formValues,
+        [name]: formattedDate
+      });
+    } else {
+      setFormValues({
+        ...formValues,
+        [name]: value
+      });
+    }
+  };
+
+  // Handle selection changes for autocomplete components
+  const handleSelectionChange = (name: string, value: any) => {
     setFormValues({
       ...formValues,
       [name]: value
@@ -120,6 +151,7 @@ export default function Home() {
                           value={formValues.Suburb}
                           onChange={handleInputChange}
                           size="sm"
+                          aria-label="Select suburb"
                         >
                           <SelectItem key="Airport West">Airport West</SelectItem>
                           <SelectItem key="Albert Park">Albert Park</SelectItem>
@@ -143,6 +175,7 @@ export default function Home() {
                           value={formValues.Type}
                           onChange={handleInputChange}
                           size="sm"
+                          aria-label="Select property type"
                         >
                           <SelectItem key="br">Bedroom(s)</SelectItem>
                           <SelectItem key="h">House/Cottage/Villa/Semi/Terrace</SelectItem>
@@ -160,10 +193,12 @@ export default function Home() {
                         <Autocomplete
                           className="max-w-xs"
                           defaultItems={sellers}
-                          value={formValues.Seller}
+                          selectedKey={formValues.Seller}
+                          onSelectionChange={(key) => handleSelectionChange("Seller", key)}
                           size="sm"
+                          aria-label="Select seller"
                         >
-                          {(item) => <AutocompleteItem key={item.key}>{item.label}</AutocompleteItem>}
+                          {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
                         </Autocomplete>
                       </div>
 
@@ -177,6 +212,7 @@ export default function Home() {
                           value={formValues.Distance}
                           onChange={handleInputChange}
                           size="sm"
+                          aria-label="Enter distance"
                         />
                       </div>
 
@@ -190,6 +226,7 @@ export default function Home() {
                           value={formValues.Car}
                           onChange={handleInputChange}
                           size="sm"
+                          aria-label="Enter number of car spaces"
                         />
                       </div>
 
@@ -200,10 +237,12 @@ export default function Home() {
                         <Autocomplete
                           className="max-w-xs"
                           defaultItems={CouncilAreas}
-                          value={formValues.CouncilArea}
+                          selectedKey={formValues.CouncilArea}
+                          onSelectionChange={(key) => handleSelectionChange("CouncilArea", key)}
                           size="sm"
+                          aria-label="Select council area"
                         >
-                          {(item) => <AutocompleteItem key={item.key}>{item.label}</AutocompleteItem>}
+                          {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
                         </Autocomplete>
                       </div>
                     </div>
@@ -220,6 +259,7 @@ export default function Home() {
                           value={formValues.Rooms}
                           onChange={handleInputChange}
                           size="sm"
+                          aria-label="Enter number of rooms"
                         />
                       </div>
 
@@ -232,6 +272,7 @@ export default function Home() {
                           value={formValues.Method}
                           onChange={handleInputChange}
                           size="sm"
+                          aria-label="Select sale method"
                         >
                           <SelectItem key="S">property sold</SelectItem>
                           <SelectItem key="SP">property sold prior</SelectItem>
@@ -251,9 +292,8 @@ export default function Home() {
                         <label className="block text-xs font-medium text-gray-700 mb-0.5">
                           Date
                         </label>
-                        {/* <DatePicker                           
+                        <DatePicker                           
                           name="Date"
-                          value={formValues.Date ? formValues.Date : null}
                           onChange={(date) => {
                             handleInputChange({
                               target: {
@@ -263,7 +303,8 @@ export default function Home() {
                             });
                           }}
                           size="sm"
-                        /> */}
+                          aria-label="Select date"
+                        />
                       </div>
 
                       <div className="mb-1">
@@ -276,6 +317,7 @@ export default function Home() {
                           value={formValues.Bedroom2}
                           onChange={handleInputChange}
                           size="sm"
+                          aria-label="Enter number of bedrooms"
                         />
                       </div>
 
@@ -289,6 +331,7 @@ export default function Home() {
                           value={formValues.Landsize}
                           onChange={handleInputChange}
                           size="sm"
+                          aria-label="Enter land size"
                         />
                       </div>
 
@@ -302,6 +345,7 @@ export default function Home() {
                           value={formValues.Lattitude}
                           onChange={handleInputChange}
                           size="sm"
+                          aria-label="Enter latitude"
                         />
                       </div>
                     </div>
@@ -318,6 +362,7 @@ export default function Home() {
                           value={formValues.Bathroom}
                           onChange={handleInputChange}
                           size="sm"
+                          aria-label="Enter number of bathrooms"
                         />
                       </div>
 
@@ -331,6 +376,7 @@ export default function Home() {
                           value={formValues.YearBuilt}
                           onChange={handleInputChange}
                           size="sm"
+                          aria-label="Enter year built"
                         />
                       </div>
 
@@ -344,6 +390,7 @@ export default function Home() {
                           value={formValues.Longtitude}
                           onChange={handleInputChange}
                           size="sm"
+                          aria-label="Enter longitude"
                         />
                       </div>
 
@@ -356,6 +403,7 @@ export default function Home() {
                           value={formValues.Region}
                           onChange={handleInputChange}
                           size="sm"
+                          aria-label="Select region"
                         >
                           <SelectItem key="Eastern Metropolitan">Eastern Metropolitan</SelectItem>
                           <SelectItem key="Eastern Victoria">Eastern Victoria</SelectItem>
@@ -371,7 +419,7 @@ export default function Home() {
 
                     {/* Submit button - spans all columns */}
                     <div className="col-span-3 mt-3">
-                      <Button type="submit" color="primary" className="w-full">
+                      <Button type="submit" color="primary" className="w-full" aria-label="Submit form">
                         Submit
                       </Button>
                     </div>
