@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/daaa/Downloads/NYP_Y3S2_Assignments/MLOps-Assignment/notebooks/karthik/mlruns/143922850918778822/108b615f80814c5cabd9c85d6af6ed81/artifacts
+end_time: 1740542064304
+entry_point_name: ''
+experiment_id: '143922850918778822'
+lifecycle_stage: active
+run_id: 108b615f80814c5cabd9c85d6af6ed81
+run_name: Extreme Gradient Boosting
+run_uuid: 108b615f80814c5cabd9c85d6af6ed81
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740542063962
+status: 3
+tags: []
+user_id: daaa

@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/daaa/Downloads/NYP_Y3S2_Assignments/MLOps-Assignment/notebooks/karthik/mlruns/143922850918778822/23226446767c4c40b3613145c9415c50/artifacts
+end_time: 1740542064674
+entry_point_name: ''
+experiment_id: '143922850918778822'
+lifecycle_stage: active
+run_id: 23226446767c4c40b3613145c9415c50
+run_name: K Neighbors Regressor
+run_uuid: 23226446767c4c40b3613145c9415c50
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740542064398
+status: 3
+tags: []
+user_id: daaa

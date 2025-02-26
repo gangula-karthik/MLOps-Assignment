@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/daaa/Downloads/NYP_Y3S2_Assignments/MLOps-Assignment/notebooks/karthik/mlruns/143922850918778822/1916d02f95e34aa9ac6aaddb565eaa5d/artifacts
+end_time: 1740542061925
+entry_point_name: ''
+experiment_id: '143922850918778822'
+lifecycle_stage: active
+run_id: 1916d02f95e34aa9ac6aaddb565eaa5d
+run_name: CatBoost Regressor
+run_uuid: 1916d02f95e34aa9ac6aaddb565eaa5d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740542060327
+status: 3
+tags: []
+user_id: daaa

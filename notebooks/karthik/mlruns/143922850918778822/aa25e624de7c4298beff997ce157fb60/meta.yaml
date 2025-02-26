@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/daaa/Downloads/NYP_Y3S2_Assignments/MLOps-Assignment/notebooks/karthik/mlruns/143922850918778822/aa25e624de7c4298beff997ce157fb60/artifacts
+end_time: 1740542063863
+entry_point_name: ''
+experiment_id: '143922850918778822'
+lifecycle_stage: active
+run_id: aa25e624de7c4298beff997ce157fb60
+run_name: Gradient Boosting Regressor
+run_uuid: aa25e624de7c4298beff997ce157fb60
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740542063466
+status: 3
+tags: []
+user_id: daaa

@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/daaa/Downloads/NYP_Y3S2_Assignments/MLOps-Assignment/notebooks/karthik/mlruns/143922850918778822/dff07d4d5b6b467e8b5a78509b6adb1f/artifacts
+end_time: 1740542065626
+entry_point_name: ''
+experiment_id: '143922850918778822'
+lifecycle_stage: active
+run_id: dff07d4d5b6b467e8b5a78509b6adb1f
+run_name: Bayesian Ridge
+run_uuid: dff07d4d5b6b467e8b5a78509b6adb1f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740542065242
+status: 3
+tags: []
+user_id: daaa
