@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/daaa/Downloads/NYP_Y3S2_Assignments/MLOps-Assignment/notebooks/karthik/mlruns/143922850918778822/d7c4805d533f46c8b9c6208846d60244/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '143922850918778822'
+lifecycle_stage: active
+run_id: d7c4805d533f46c8b9c6208846d60244
+run_name: Session Initialized 3cbe
+run_uuid: d7c4805d533f46c8b9c6208846d60244
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740497413218
+status: 1
+tags: []
+user_id: daaa
