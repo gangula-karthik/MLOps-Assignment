@@ -251,7 +251,7 @@ export default function Home() {
                         <label className="block text-xs font-medium text-gray-700 mb-0.5">
                           Date
                         </label>
-                        <DatePicker                           
+                        {/* <DatePicker                           
                           name="Date"
                           value={formValues.Date ? formValues.Date : null}
                           onChange={(date) => {
@@ -263,7 +263,7 @@ export default function Home() {
                             });
                           }}
                           size="sm"
-                        />
+                        /> */}
                       </div>
 
                       <div className="mb-1">
