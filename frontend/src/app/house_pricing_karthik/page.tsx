@@ -10,7 +10,6 @@ import { DatePicker } from "@heroui/react";
 import { Autocomplete, AutocompleteSection, AutocompleteItem } from "@heroui/autocomplete";
 
 export default function Home() {
-  // State for form input values
   const [formValues, setFormValues] = useState({
     Suburb: "",
     Rooms: "",
