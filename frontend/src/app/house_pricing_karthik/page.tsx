@@ -6,26 +6,27 @@ import { Card, CardBody } from "@heroui/card";
 import { Button } from "@heroui/button";
 import { Input } from "@heroui/input";
 import { Select, SelectSection, SelectItem } from "@heroui/select";
+import { DatePicker } from "@heroui/react";
 import { Autocomplete, AutocompleteSection, AutocompleteItem } from "@heroui/autocomplete";
 
 export default function Home() {
   // State for form input values
   const [formValues, setFormValues] = useState({
     Suburb: "",
-    Rooms: 0,
+    Rooms: "",
     Type: "",
     Method: "",
     Seller: "",
     Date: "",
-    Distance: 0,
-    Bedroom2: 0,
-    Bathroom: 0,
-    Car: 0,
-    Landsize: 0,
-    YearBuilt: 0,
+    Distance: "",
+    Bedroom2: "",
+    Bathroom: "",
+    Car: "",
+    Landsize: "",
+    YearBuilt: "",
     CouncilArea: "",
-    Lattitude: 0,
-    Longtitude: 0,
+    Lattitude: "",
+    Longtitude: "",
     Region: ""
   });
 
@@ -74,8 +75,17 @@ export default function Home() {
     'hockingstuart/Barry', 'hockingstuart/Village', 'iOne',
     'iProperty', 'iSell', 'iTRAK'].map((seller) => ({ label: seller, key: seller }));
 
+
+    const CouncilAreas = ['Banyule', 'Bayside', 'Boroondara', 'Brimbank', 'Cardinia',
+      'Casey', 'Darebin', 'Frankston', 'Glen Eira', 'Greater Dandenong',
+      'Hobsons Bay', 'Hume', 'Kingston', 'Knox', 'Macedon Ranges',
+      'Manningham', 'Maribyrnong', 'Maroondah', 'Melbourne', 'Melton',
+      'Monash', 'Moonee Valley', 'Moorabool', 'Moreland', 'Nillumbik',
+      'Port Phillip', 'Stonnington', 'Unavailable', 'Whitehorse',
+      'Whittlesea', 'Wyndham', 'Yarra', 'Yarra Ranges'].map((CouncilArea) => ({ label: CouncilArea, key: CouncilArea }));
+
   // Handle input changes
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: { target: { name: any; value: any; }; }) => {
     const { name, value } = e.target;
     setFormValues({
       ...formValues,
@@ -84,7 +94,7 @@ export default function Home() {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     console.log("Form values:", formValues);
     // Add your submission logic here
@@ -93,7 +103,7 @@ export default function Home() {
   return (
     <main className="h-screen w-full flex items-center justify-center p-4">
       <div className="w-full max-w-4xl">
-        <Tabs aria-label="Options" color="primary" variant="solid" radius="full" size="sm">
+        <Tabs aria-label="Options" color="primary" variant="solid" radius="lg" size="lg">
           <Tab key="single" title="Housing Price Prediction">
             <Card>
               <CardBody className="py-3 px-4">
@@ -188,13 +198,14 @@ export default function Home() {
                         <label className="block text-xs font-medium text-gray-700 mb-0.5">
                           CouncilArea
                         </label>
-                        <Input
-                          type="text"
-                          name="CouncilArea"
+                        <Autocomplete
+                          className="max-w-xs"
+                          defaultItems={CouncilAreas}
                           value={formValues.CouncilArea}
-                          onChange={handleInputChange}
                           size="sm"
-                        />
+                        >
+                          {(item) => <AutocompleteItem key={item.key}>{item.label}</AutocompleteItem>}
+                        </Autocomplete>
                       </div>
                     </div>
 
@@ -205,8 +216,8 @@ export default function Home() {
                           Rooms
                         </label>
                         <Select
-                          name="Suburb"
-                          value={formValues.Suburb}
+                          name="Rooms"
+                          value={formValues.Rooms}
                           onChange={handleInputChange}
                           size="sm"
                         >
@@ -227,21 +238,31 @@ export default function Home() {
                         <label className="block text-xs font-medium text-gray-700 mb-0.5">
                           Method
                         </label>
-                        <Input
-                          type="text"
+                        <Select
                           name="Method"
                           value={formValues.Method}
                           onChange={handleInputChange}
                           size="sm"
-                        />
+                        >
+                          <SelectItem key="S">property sold</SelectItem>
+                          <SelectItem key="SP">property sold prior</SelectItem>
+                          <SelectItem key="PI">property passed in</SelectItem>
+                          <SelectItem key="PN">sold prior not disclosed</SelectItem>
+                          <SelectItem key="SN">sold not disclosed</SelectItem>
+                          <SelectItem key="NB">no bid</SelectItem>
+                          <SelectItem key="VB">vendor bid</SelectItem>
+                          <SelectItem key="W">withdrawn prior to auction</SelectItem>
+                          <SelectItem key="SA">sold after auction</SelectItem>
+                          <SelectItem key="SS">sold after auction (n/a price)</SelectItem>
+                          <SelectItem key="N/A">price/bid not available</SelectItem>
+                        </Select>
                       </div>
 
                       <div className="mb-1">
                         <label className="block text-xs font-medium text-gray-700 mb-0.5">
                           Date
                         </label>
-                        <Input
-                          type="text"
+                        <DatePicker                           
                           name="Date"
                           value={formValues.Date}
                           onChange={handleInputChange}
