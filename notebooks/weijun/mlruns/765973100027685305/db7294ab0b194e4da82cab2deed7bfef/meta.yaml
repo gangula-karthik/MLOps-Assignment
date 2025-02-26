@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/User/Documents/MLOPS%20assn/MLOps-Assignment/notebooks/weijun/mlruns/765973100027685305/db7294ab0b194e4da82cab2deed7bfef/artifacts
+end_time: 1740490128840
+entry_point_name: ''
+experiment_id: '765973100027685305'
+lifecycle_stage: active
+run_id: db7294ab0b194e4da82cab2deed7bfef
+run_name: Decision Tree Regressor
+run_uuid: db7294ab0b194e4da82cab2deed7bfef
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740490128484
+status: 3
+tags: []
+user_id: User

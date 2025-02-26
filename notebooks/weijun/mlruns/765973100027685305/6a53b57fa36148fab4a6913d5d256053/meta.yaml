@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/User/Documents/MLOPS%20assn/MLOps-Assignment/notebooks/weijun/mlruns/765973100027685305/6a53b57fa36148fab4a6913d5d256053/artifacts
+end_time: 1740492680598
+entry_point_name: ''
+experiment_id: '765973100027685305'
+lifecycle_stage: active
+run_id: 6a53b57fa36148fab4a6913d5d256053
+run_name: Linear Regression
+run_uuid: 6a53b57fa36148fab4a6913d5d256053
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740492680261
+status: 3
+tags: []
+user_id: User

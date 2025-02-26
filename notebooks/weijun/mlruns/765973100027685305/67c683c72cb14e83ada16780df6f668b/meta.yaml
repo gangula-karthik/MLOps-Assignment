@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/User/Documents/MLOPS%20assn/MLOps-Assignment/notebooks/weijun/mlruns/765973100027685305/67c683c72cb14e83ada16780df6f668b/artifacts
+end_time: 1740491560829
+entry_point_name: ''
+experiment_id: '765973100027685305'
+lifecycle_stage: active
+run_id: 67c683c72cb14e83ada16780df6f668b
+run_name: CatBoost Regressor
+run_uuid: 67c683c72cb14e83ada16780df6f668b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740491559891
+status: 3
+tags: []
+user_id: User

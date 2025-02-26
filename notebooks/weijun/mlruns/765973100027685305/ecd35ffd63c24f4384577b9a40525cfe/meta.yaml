@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/User/Documents/MLOPS%20assn/MLOps-Assignment/notebooks/weijun/mlruns/765973100027685305/ecd35ffd63c24f4384577b9a40525cfe/artifacts
+end_time: 1740538139769
+entry_point_name: ''
+experiment_id: '765973100027685305'
+lifecycle_stage: active
+run_id: ecd35ffd63c24f4384577b9a40525cfe
+run_name: Ridge Regression
+run_uuid: ecd35ffd63c24f4384577b9a40525cfe
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740538139524
+status: 3
+tags: []
+user_id: User

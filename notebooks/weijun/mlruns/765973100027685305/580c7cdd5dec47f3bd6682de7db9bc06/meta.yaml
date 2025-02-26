@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/User/Documents/MLOPS%20assn/MLOps-Assignment/notebooks/weijun/mlruns/765973100027685305/580c7cdd5dec47f3bd6682de7db9bc06/artifacts
+end_time: 1740494115064
+entry_point_name: ''
+experiment_id: '765973100027685305'
+lifecycle_stage: active
+run_id: 580c7cdd5dec47f3bd6682de7db9bc06
+run_name: Orthogonal Matching Pursuit
+run_uuid: 580c7cdd5dec47f3bd6682de7db9bc06
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740494114695
+status: 3
+tags: []
+user_id: User

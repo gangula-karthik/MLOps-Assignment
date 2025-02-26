@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/User/Documents/MLOPS%20assn/MLOps-Assignment/notebooks/weijun/mlruns/765973100027685305/cf367bedc4224533868ff2dcc13585ee/artifacts
+end_time: 1740501889044
+entry_point_name: ''
+experiment_id: '765973100027685305'
+lifecycle_stage: active
+run_id: cf367bedc4224533868ff2dcc13585ee
+run_name: Light Gradient Boosting Machine
+run_uuid: cf367bedc4224533868ff2dcc13585ee
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740501888748
+status: 3
+tags: []
+user_id: User

@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/User/Documents/MLOPS%20assn/MLOps-Assignment/notebooks/weijun/mlruns/765973100027685305/211c9979d7754226adb774dca1fd403d/artifacts
+end_time: 1740501895646
+entry_point_name: ''
+experiment_id: '765973100027685305'
+lifecycle_stage: active
+run_id: 211c9979d7754226adb774dca1fd403d
+run_name: Elastic Net
+run_uuid: 211c9979d7754226adb774dca1fd403d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740501895375
+status: 3
+tags: []
+user_id: User

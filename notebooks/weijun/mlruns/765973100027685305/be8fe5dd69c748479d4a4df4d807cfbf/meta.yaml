@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/User/Documents/MLOPS%20assn/MLOps-Assignment/notebooks/weijun/mlruns/765973100027685305/be8fe5dd69c748479d4a4df4d807cfbf/artifacts
+end_time: 1740492082976
+entry_point_name: ''
+experiment_id: '765973100027685305'
+lifecycle_stage: active
+run_id: be8fe5dd69c748479d4a4df4d807cfbf
+run_name: AdaBoost Regressor
+run_uuid: be8fe5dd69c748479d4a4df4d807cfbf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740492082629
+status: 3
+tags: []
+user_id: User

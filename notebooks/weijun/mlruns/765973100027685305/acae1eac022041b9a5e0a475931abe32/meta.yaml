@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/User/Documents/MLOPS%20assn/MLOps-Assignment/notebooks/weijun/mlruns/765973100027685305/acae1eac022041b9a5e0a475931abe32/artifacts
+end_time: 1740494108341
+entry_point_name: ''
+experiment_id: '765973100027685305'
+lifecycle_stage: active
+run_id: acae1eac022041b9a5e0a475931abe32
+run_name: Extra Trees Regressor
+run_uuid: acae1eac022041b9a5e0a475931abe32
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740494107945
+status: 3
+tags: []
+user_id: User

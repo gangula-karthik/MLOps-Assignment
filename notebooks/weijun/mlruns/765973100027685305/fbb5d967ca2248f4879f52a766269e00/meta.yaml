@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/User/Documents/MLOPS%20assn/MLOps-Assignment/notebooks/weijun/mlruns/765973100027685305/fbb5d967ca2248f4879f52a766269e00/artifacts
+end_time: 1740498842406
+entry_point_name: ''
+experiment_id: '765973100027685305'
+lifecycle_stage: active
+run_id: fbb5d967ca2248f4879f52a766269e00
+run_name: Session Initialized fe01
+run_uuid: fbb5d967ca2248f4879f52a766269e00
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740498620228
+status: 3
+tags: []
+user_id: User

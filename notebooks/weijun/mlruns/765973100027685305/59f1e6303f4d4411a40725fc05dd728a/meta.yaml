@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/User/Documents/MLOPS%20assn/MLOps-Assignment/notebooks/weijun/mlruns/765973100027685305/59f1e6303f4d4411a40725fc05dd728a/artifacts
+end_time: 1740492674379
+entry_point_name: ''
+experiment_id: '765973100027685305'
+lifecycle_stage: active
+run_id: 59f1e6303f4d4411a40725fc05dd728a
+run_name: K Neighbors Regressor
+run_uuid: 59f1e6303f4d4411a40725fc05dd728a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740492673990
+status: 3
+tags: []
+user_id: User

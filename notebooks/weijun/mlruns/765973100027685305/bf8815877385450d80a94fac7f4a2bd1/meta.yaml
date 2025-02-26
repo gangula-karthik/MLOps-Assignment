@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/User/Documents/MLOPS%20assn/MLOps-Assignment/notebooks/weijun/mlruns/765973100027685305/bf8815877385450d80a94fac7f4a2bd1/artifacts
+end_time: 1740490981216
+entry_point_name: ''
+experiment_id: '765973100027685305'
+lifecycle_stage: active
+run_id: bf8815877385450d80a94fac7f4a2bd1
+run_name: Least Angle Regression
+run_uuid: bf8815877385450d80a94fac7f4a2bd1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740490980886
+status: 3
+tags: []
+user_id: User

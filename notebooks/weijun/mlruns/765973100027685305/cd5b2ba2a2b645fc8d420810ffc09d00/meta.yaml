@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/User/Documents/MLOPS%20assn/MLOps-Assignment/notebooks/weijun/mlruns/765973100027685305/cd5b2ba2a2b645fc8d420810ffc09d00/artifacts
+end_time: 1740490614945
+entry_point_name: ''
+experiment_id: '765973100027685305'
+lifecycle_stage: active
+run_id: cd5b2ba2a2b645fc8d420810ffc09d00
+run_name: Extreme Gradient Boosting
+run_uuid: cd5b2ba2a2b645fc8d420810ffc09d00
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740490614486
+status: 3
+tags: []
+user_id: User

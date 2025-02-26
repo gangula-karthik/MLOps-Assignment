@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/User/Documents/MLOPS%20assn/MLOps-Assignment/notebooks/weijun/mlruns/765973100027685305/b9f3cb709b1347afa0d89ddc064ce337/artifacts
+end_time: 1740501896518
+entry_point_name: ''
+experiment_id: '765973100027685305'
+lifecycle_stage: active
+run_id: b9f3cb709b1347afa0d89ddc064ce337
+run_name: Lasso Least Angle Regression
+run_uuid: b9f3cb709b1347afa0d89ddc064ce337
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740501896251
+status: 3
+tags: []
+user_id: User

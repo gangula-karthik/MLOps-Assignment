@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/User/Documents/MLOPS%20assn/MLOps-Assignment/notebooks/weijun/mlruns/765973100027685305/33a58e131da14521b1e33edcd18c354d/artifacts
+end_time: 1740501894781
+entry_point_name: ''
+experiment_id: '765973100027685305'
+lifecycle_stage: active
+run_id: 33a58e131da14521b1e33edcd18c354d
+run_name: Huber Regressor
+run_uuid: 33a58e131da14521b1e33edcd18c354d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740501894521
+status: 3
+tags: []
+user_id: User

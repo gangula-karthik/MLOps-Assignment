@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/User/Documents/MLOPS%20assn/MLOps-Assignment/notebooks/weijun/mlruns/765973100027685305/f8aa2873bd7740119c599015c9d13ec0/artifacts
+end_time: 1740501890433
+entry_point_name: ''
+experiment_id: '765973100027685305'
+lifecycle_stage: active
+run_id: f8aa2873bd7740119c599015c9d13ec0
+run_name: Gradient Boosting Regressor
+run_uuid: f8aa2873bd7740119c599015c9d13ec0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740501890139
+status: 3
+tags: []
+user_id: User

@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/User/Documents/MLOPS%20assn/MLOps-Assignment/notebooks/weijun/mlruns/765973100027685305/59cc08f2fc5546bf8ce8b4e7e860ed81/artifacts
+end_time: 1740494114478
+entry_point_name: ''
+experiment_id: '765973100027685305'
+lifecycle_stage: active
+run_id: 59cc08f2fc5546bf8ce8b4e7e860ed81
+run_name: Passive Aggressive Regressor
+run_uuid: 59cc08f2fc5546bf8ce8b4e7e860ed81
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740494114073
+status: 3
+tags: []
+user_id: User

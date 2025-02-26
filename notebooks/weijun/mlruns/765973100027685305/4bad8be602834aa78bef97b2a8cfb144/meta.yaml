@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/User/Documents/MLOPS%20assn/MLOps-Assignment/notebooks/weijun/mlruns/765973100027685305/4bad8be602834aa78bef97b2a8cfb144/artifacts
+end_time: 1740538143369
+entry_point_name: ''
+experiment_id: '765973100027685305'
+lifecycle_stage: active
+run_id: 4bad8be602834aa78bef97b2a8cfb144
+run_name: Dummy Regressor
+run_uuid: 4bad8be602834aa78bef97b2a8cfb144
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740538143133
+status: 3
+tags: []
+user_id: User

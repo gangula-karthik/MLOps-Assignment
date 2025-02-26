@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/User/Documents/MLOPS%20assn/MLOps-Assignment/notebooks/weijun/mlruns/765973100027685305/b0c2cc94ef98472da8df4e77d38e4eca/artifacts
+end_time: 1740492672066
+entry_point_name: ''
+experiment_id: '765973100027685305'
+lifecycle_stage: active
+run_id: b0c2cc94ef98472da8df4e77d38e4eca
+run_name: Random Forest Regressor
+run_uuid: b0c2cc94ef98472da8df4e77d38e4eca
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740492671702
+status: 3
+tags: []
+user_id: User
