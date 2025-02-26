@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Gabriel/Downloads/it3385_assignment/mlruns/0/ec1e10b0ab0e45a5bca747dd0f1220b7/artifacts
+end_time: 1740577003458
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ec1e10b0ab0e45a5bca747dd0f1220b7
+run_name: victorious-wren-732
+run_uuid: ec1e10b0ab0e45a5bca747dd0f1220b7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740577003357
+status: 4
+tags: []
+user_id: Gabriel

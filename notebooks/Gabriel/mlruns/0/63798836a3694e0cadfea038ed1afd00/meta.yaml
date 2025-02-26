@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Gabriel/Downloads/it3385_assignment/mlruns/0/63798836a3694e0cadfea038ed1afd00/artifacts
+end_time: 1740577246350
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 63798836a3694e0cadfea038ed1afd00
+run_name: capricious-owl-307
+run_uuid: 63798836a3694e0cadfea038ed1afd00
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740577246012
+status: 4
+tags: []
+user_id: Gabriel
