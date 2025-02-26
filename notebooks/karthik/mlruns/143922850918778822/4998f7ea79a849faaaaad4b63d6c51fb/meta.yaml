@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/daaa/Downloads/NYP_Y3S2_Assignments/MLOps-Assignment/notebooks/karthik/mlruns/143922850918778822/4998f7ea79a849faaaaad4b63d6c51fb/artifacts
+end_time: 1740542067372
+entry_point_name: ''
+experiment_id: '143922850918778822'
+lifecycle_stage: active
+run_id: 4998f7ea79a849faaaaad4b63d6c51fb
+run_name: Lasso Regression
+run_uuid: 4998f7ea79a849faaaaad4b63d6c51fb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740542067007
+status: 3
+tags: []
+user_id: daaa

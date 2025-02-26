@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/daaa/Downloads/NYP_Y3S2_Assignments/MLOps-Assignment/notebooks/karthik/mlruns/143922850918778822/2a6b439bc31e4242a46218f405d20564/artifacts
+end_time: 1740542194484
+entry_point_name: ''
+experiment_id: '143922850918778822'
+lifecycle_stage: active
+run_id: 2a6b439bc31e4242a46218f405d20564
+run_name: Extra Trees Regressor
+run_uuid: 2a6b439bc31e4242a46218f405d20564
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740542193199
+status: 3
+tags: []
+user_id: daaa

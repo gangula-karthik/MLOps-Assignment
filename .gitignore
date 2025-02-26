@@ -1,6 +1,8 @@
 **/ipynb_checkpoints/
 **/.DS_Store
 **/__pycache__/
+**/*.pkl
+
 
 # dependencies
 **/node_modules/
