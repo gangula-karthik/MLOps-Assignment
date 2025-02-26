@@ -12,7 +12,7 @@ app = FastAPI()
 mlflow.set_tracking_uri("https://dagshub.com/gangula-karthik/MLOps-Assignment.mlflow")  
 
 # 🔹 Load the latest registered model from MLflow
-MODEL_NAME = "HousePricingModel"
+MODEL_NAME = "HousePricingModel_Karthik"
 MODEL_VERSION = "latest"  # Change to specific version if needed
 model = mlflow.sklearn.load_model(f"models:/{MODEL_NAME}/{MODEL_VERSION}")
 
