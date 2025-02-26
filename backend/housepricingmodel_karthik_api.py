@@ -1,13 +1,14 @@
 import pandas as pd
 import mlflow
 import mlflow.sklearn
-from fastapi import FastAPI
 from pydantic import BaseModel
 import os
 from typing import Optional
 from dotenv import load_dotenv, find_dotenv
+from fastapi import APIRouter
 
-app = FastAPI()
+
+router = APIRouter()
 
 load_dotenv(find_dotenv())
 mlflow_username = os.environ["MLFLOW_TRACKING_USERNAME"]
@@ -40,13 +41,8 @@ class HouseFeatures(BaseModel):
 class PredictionOutput(BaseModel):
     prediction: float
 
-@app.post("/predict", response_model=PredictionOutput)
+@router.post("/house_pricing_karthik/predict", response_model=PredictionOutput)
 def predict_price(data: HouseFeatures):
     df = pd.DataFrame([data.dict()])  # convert input to DataFrame
     prediction = model.predict(df)  # making prediction
     return {"prediction": prediction[0]}  # return JSON response
-
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)

@@ -2,14 +2,15 @@
 import pandas as pd
 from pycaret.regression import load_model, predict_model
 from fastapi import FastAPI
+from fastapi import APIRouter
 import uvicorn
 from pydantic import BaseModel
 
 # Create the app
-app = FastAPI()
+router = APIRouter()
 
 # Load trained Pipeline
-model = load_model("notebooks/weijun/best_cb_model")
+model = load_model("../notebooks/weijun/best_cb_model")
 
 
 # Define input/output models using Pydantic
@@ -32,7 +33,7 @@ class OutputModel(BaseModel):
 
 
 # Define predict function
-@app.post("/predict", response_model=OutputModel)
+@router.post("/car_sales_weijun/predict", response_model=OutputModel)
 def predict(data: InputModel):
     data_df = pd.DataFrame([data.dict()])
     predictions = predict_model(model, data=data_df)

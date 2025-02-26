@@ -5,9 +5,12 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import os
 from dotenv import load_dotenv, find_dotenv
+from fastapi import APIRouter
+
 
 # Initialize FastAPI app
-app = FastAPI()
+router = APIRouter()
+
 
 # Load environment variables
 load_dotenv(find_dotenv())  # Ensure .env file is found and loaded
@@ -44,7 +47,7 @@ class PredictionOutput(BaseModel):
     prediction: str  # Wheat type (Kama, Rosa, or Canadian)
 
 # Prediction endpoint
-@app.post("/predict", response_model=PredictionOutput)
+@router.post("/wheat_type_gabriel/predict", response_model=PredictionOutput)
 def predict_wheat(data: WheatFeatures):
     try:
         # Convert input to DataFrame
