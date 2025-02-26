@@ -215,23 +215,13 @@ export default function Home() {
                         <label className="block text-xs font-medium text-gray-700 mb-0.5">
                           Rooms
                         </label>
-                        <Select
+                        <Input
+                          type="number"
                           name="Rooms"
                           value={formValues.Rooms}
                           onChange={handleInputChange}
                           size="sm"
-                        >
-                          <SelectItem key={1}>1</SelectItem>
-                          <SelectItem key={2}>2</SelectItem>
-                          <SelectItem key={3}>3</SelectItem>
-                          <SelectItem key={4}>4</SelectItem>
-                          <SelectItem key={5}>5</SelectItem>
-                          <SelectItem key={6}>6</SelectItem>
-                          <SelectItem key={7}>7</SelectItem>
-                          <SelectItem key={8}>8</SelectItem>
-                          <SelectItem key={9}>9</SelectItem>
-                          <SelectItem key={10}>10</SelectItem>
-                        </Select>
+                        />
                       </div>
 
                       <div className="mb-1">
@@ -264,8 +254,15 @@ export default function Home() {
                         </label>
                         <DatePicker                           
                           name="Date"
-                          value={formValues.Date}
-                          onChange={handleInputChange}
+                          value={formValues.Date ? formValues.Date : null}
+                          onChange={(date) => {
+                            handleInputChange({
+                              target: {
+                                name: "Date",
+                                value: date
+                              }
+                            });
+                          }}
                           size="sm"
                         />
                       </div>
@@ -355,13 +352,21 @@ export default function Home() {
                         <label className="block text-xs font-medium text-gray-700 mb-0.5">
                           Region
                         </label>
-                        <Input
-                          type="text"
+                        <Select
                           name="Region"
                           value={formValues.Region}
                           onChange={handleInputChange}
                           size="sm"
-                        />
+                        >
+                          <SelectItem key="Eastern Metropolitan">Eastern Metropolitan</SelectItem>
+                          <SelectItem key="Eastern Victoria">Eastern Victoria</SelectItem>
+                          <SelectItem key="Northern Metropolitan">Northern Metropolitan</SelectItem>
+                          <SelectItem key="Northern Victoria">Northern Victoria</SelectItem>
+                          <SelectItem key="South-Eastern Metropolitan">South-Eastern Metropolitan</SelectItem>
+                          <SelectItem key="Southern Metropolitan">Southern Metropolitan</SelectItem>
+                          <SelectItem key="Western Metropolitan">Western Metropolitan</SelectItem>
+                          <SelectItem key="Western Victoria">Western Victoria</SelectItem>
+                        </Select>
                       </div>
                     </div>
 
