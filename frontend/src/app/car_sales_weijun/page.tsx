@@ -18,23 +18,21 @@ export default function Home() {
     Mileage: "",
     Engine: "",
     Power: "",
-    Seats: 5,  // Set default value for Seats to 5 as per example
+    Seats: "5",  // Change Seats default value to string
     Brand: "",
   });
   const [prediction, setPrediction] = useState<string | null>(null);
 
-  // Fix type of event parameter
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormValues({
       ...formValues,
-      [name]: name === "Seats" ? Math.max(1, parseInt(value)) : value,
+      [name]: name === "Seats" ? Math.max(1, parseInt(value)).toString() : value, // Ensure Seats value is stored as a string
     });
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Log the form values to the console
     console.log("Form Values:", formValues);
     try {
       const response = await fetch("https://mlops-assignment-734580083911.asia-east1.run.app//api2/car_sales_weijun/predict", {
@@ -49,12 +47,12 @@ export default function Home() {
           Mileage: parseFloat(formValues.Mileage),
           Engine: parseFloat(formValues.Engine),
           Power: parseFloat(formValues.Power),
-          Seats: parseInt(formValues.Seats),
+          Seats: parseInt(formValues.Seats), // Convert Seats back to number for API request
         }),
       });
 
-      const data = await response.json();
-      setPrediction(Math.round(data.prediction));
+      const data:any = await response.json();
+      setPrediction(Math.round(data.prediction).toString()); // Convert prediction to string before setting state
     } catch (error) {
       console.error("Error:", error);
       setPrediction("Failed to fetch prediction");
@@ -129,7 +127,7 @@ export default function Home() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700">Seats</label>
-                    <Input type="number" name="Seats" value={formValues.Seats} onChange={handleInputChange} required min="1" />
+                    <Input type="number" name="Seats" value={formValues.Seats.toString()} onChange={handleInputChange} required min="1" /> {/* Ensure Seats value is converted to string for Input */}
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700">Year</label>
