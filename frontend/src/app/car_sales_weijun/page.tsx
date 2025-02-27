@@ -77,7 +77,7 @@ export default function Home() {
                     <label className="block text-sm font-medium text-gray-700">Brand</label>
                     <Select name="Brand" value={formValues.Brand} onChange={handleInputChange} required>
                       {brands.map((brand) => (
-                        <SelectItem key={brand} value={brand}>{brand}</SelectItem>
+                        <SelectItem key={brand}>{brand}</SelectItem>
                       ))}
                     </Select>
                   </div>
@@ -85,7 +85,7 @@ export default function Home() {
                     <label className="block text-sm font-medium text-gray-700">Location</label>
                     <Select name="Location" value={formValues.Location} onChange={handleInputChange} required>
                       {locations.map((loc) => (
-                        <SelectItem key={loc} value={loc}>{loc}</SelectItem>
+                        <SelectItem key={loc}>{loc}</SelectItem>
                       ))}
                     </Select>
                   </div>
@@ -93,7 +93,7 @@ export default function Home() {
                     <label className="block text-sm font-medium text-gray-700">Fuel Type</label>
                     <Select name="Fuel_Type" value={formValues.Fuel_Type} onChange={handleInputChange} required>
                       {fuelTypes.map((fuel) => (
-                        <SelectItem key={fuel} value={fuel}>{fuel}</SelectItem>
+                        <SelectItem key={fuel}>{fuel}</SelectItem>
                       ))}
                     </Select>
                   </div>
@@ -101,7 +101,7 @@ export default function Home() {
                     <label className="block text-sm font-medium text-gray-700">Transmission</label>
                     <Select name="Transmission" value={formValues.Transmission} onChange={handleInputChange} required>
                       {transmissions.map((trans) => (
-                        <SelectItem key={trans} value={trans}>{trans}</SelectItem>
+                        <SelectItem key={trans}>{trans}</SelectItem>
                       ))}
                     </Select>
                   </div>
@@ -109,7 +109,7 @@ export default function Home() {
                     <label className="block text-sm font-medium text-gray-700">Owner Type</label>
                     <Select name="Owner_Type" value={formValues.Owner_Type} onChange={handleInputChange} required>
                       {ownerTypes.map((owner) => (
-                        <SelectItem key={owner} value={owner}>{owner}</SelectItem>
+                        <SelectItem key={owner}>{owner}</SelectItem>
                       ))}
                     </Select>
                   </div>
