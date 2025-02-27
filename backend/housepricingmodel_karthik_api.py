@@ -21,7 +21,7 @@ mlflow_password = os.environ["MLFLOW_TRACKING_PASSWORD"]
 # MODEL_VERSION = "latest"  # Change to specific version if needed
 # model = mlflow.sklearn.load_model(f"models:/{MODEL_NAME}/{MODEL_VERSION}")
 
-model = load_model("./house_pricing_pipeline.pkl") # due to out of memory errors, the model will be stored here
+model = load_model("./house_pricing_pipeline") # due to out of memory errors, the model will be stored here
 
 class HouseFeatures(BaseModel):
     Suburb: str

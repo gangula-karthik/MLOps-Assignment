@@ -33,7 +33,7 @@ mlflow_password = os.getenv("MLFLOW_TRACKING_PASSWORD")
 # except Exception as e:
 #     raise RuntimeError(f"Failed to load model: {e}")
 
-model = load_model("./wheat_classifier_pipeline.pkl") # due to out of memory errors, the model will be stored here
+model = load_model("./wheat_classifier_pipeline") # due to out of memory errors, the model will be stored here
 
 # Input model: Wheat features
 class WheatFeatures(BaseModel):
