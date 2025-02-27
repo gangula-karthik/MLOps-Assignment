@@ -72,7 +72,7 @@ export default function Home() {
     setApiResponse(null);
     setApiError(false);
     try {
-      const response = await fetch('https://8000-01jn2j086m1z5e0kaw9xksjg0z.cloudspaces.litng.ai/api1/house_pricing_karthik/predict', {
+      const response = await fetch('https://mlops-assignment-734580083911.asia-east1.run.app/api1/house_pricing_karthik/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -397,7 +397,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="col-span-3 mt-3 mb-3">
-                      <Button type="submit" color="primary" className="w-full" aria-label="Submit form">
+                      <Button type="submit" color="primary" className="w-full" isLoading={apiError === false && apiResponse === null} aria-label="Submit form">
                         Submit
                       </Button>
                     </div>

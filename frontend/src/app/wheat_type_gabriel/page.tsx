@@ -39,7 +39,7 @@ export default function Home() {
     setError(null);
     
     try {
-      const response = await fetch('https://8000-01jn2j086m1z5e0kaw9xksjg0z.cloudspaces.litng.ai/api3/wheat_type_gabriel/predict', {
+      const response = await fetch('https://mlops-assignment-734580083911.asia-east1.run.app/api3/wheat_type_gabriel/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
