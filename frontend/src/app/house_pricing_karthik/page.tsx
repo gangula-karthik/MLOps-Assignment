@@ -32,6 +32,7 @@ export default function Home() {
   });
   const [apiResponse, setApiResponse] = useState<any>(null);
   const [apiError, setApiError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Handle input changes
   const handleInputChange = (e: any) => {
@@ -68,6 +69,7 @@ export default function Home() {
   // Handle form submission
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
+    setIsLoading(true);
     setApiResponse(null);
     setApiError(false);
     try {
@@ -83,6 +85,8 @@ export default function Home() {
     } catch (error) {
       console.error("Error fetching prediction:", error);
       setApiError(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -396,7 +400,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="col-span-3 mt-3 mb-3">
-                      <Button type="submit" color="primary" className="w-full" isLoading={apiError === false && apiResponse === null} aria-label="Submit form">
+                    <Button type="submit" color="primary" className="w-full" isLoading={isLoading} aria-label="Submit form">
                         Submit
                       </Button>
                     </div>
