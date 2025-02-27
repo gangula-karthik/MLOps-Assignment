@@ -18,12 +18,13 @@ export default function Home() {
     Mileage: "",
     Engine: "",
     Power: "",
-    Seats: "1",
+    Seats: 5,  // Set default value for Seats to 5 as per example
     Brand: "",
   });
-  const [prediction, setPrediction] = useState(null);
+  const [prediction, setPrediction] = useState<string | null>(null);
 
-  const handleInputChange = (e) => {
+  // Fix type of event parameter
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormValues({
       ...formValues,
@@ -31,12 +32,12 @@ export default function Home() {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-      // Log the form values to the console
+    // Log the form values to the console
     console.log("Form Values:", formValues);
     try {
-      const response = await fetch("https://8000-01jn2j086m1z5e0kaw9xksjg0z.cloudspaces.litng.ai/api2/car_sales_weijun/predict", {
+      const response = await fetch("https://mlops-assignment-734580083911.asia-east1.run.app//api2/car_sales_weijun/predict", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,7 +54,7 @@ export default function Home() {
       });
 
       const data = await response.json();
-      setPrediction(data.prediction);
+      setPrediction(Math.round(data.prediction));
     } catch (error) {
       console.error("Error:", error);
       setPrediction("Failed to fetch prediction");
@@ -131,27 +132,27 @@ export default function Home() {
                     <Input type="number" name="Seats" value={formValues.Seats} onChange={handleInputChange} required min="1" />
                   </div>
                   <div>
-                  <label className="block text-sm font-medium text-gray-700">Year</label>
-                  <Input
-                    type="number"
-                    name="Year"
-                    value={formValues.Year}
-                    onChange={handleInputChange}
-                    required
-                    min="1900"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Kilometers Driven</label>
-                  <Input
-                    type="number"
-                    name="Kilometers_Driven"
-                    value={formValues.Kilometers_Driven}
-                    onChange={handleInputChange}
-                    required
-                    min="1"
-                  />
-                </div>
+                    <label className="block text-sm font-medium text-gray-700">Year</label>
+                    <Input
+                      type="number"
+                      name="Year"
+                      value={formValues.Year}
+                      onChange={handleInputChange}
+                      required
+                      min="1900"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700">Kilometers Driven</label>
+                    <Input
+                      type="number"
+                      name="Kilometers_Driven"
+                      value={formValues.Kilometers_Driven}
+                      onChange={handleInputChange}
+                      required
+                      min="1"
+                    />
+                  </div>
                   <Button type="submit" color="primary" className="w-full">
                     Get Prediction
                   </Button>
