@@ -1,36 +1,36 @@
+import os
 import pandas as pd
 import mlflow
 import mlflow.sklearn
-from pycaret.regression import load_model
+from fastapi import APIRouter
 from pydantic import BaseModel
-import os
 from typing import Optional
 from dotenv import load_dotenv, find_dotenv
-from fastapi import APIRouter
 
 
-router = APIRouter()
-
+# Load environment variables
 load_dotenv(find_dotenv())
-mlflow_username = os.environ["MLFLOW_TRACKING_USERNAME"]
-mlflow_password = os.environ["MLFLOW_TRACKING_PASSWORD"]
 
-mlflow.set_tracking_uri("https://dagshub.com/gangula-karthik/MLOps-Assignment.mlflow")  
+# Set MLflow credentials
+mlflow_username = os.getenv("MLFLOW_TRACKING_USERNAME")
+mlflow_password = os.getenv("MLFLOW_TRACKING_PASSWORD")
+
+mlflow.set_tracking_uri("https://dagshub.com/gangula-karthik/MLOps-Assignment.mlflow")
 
 MODEL_NAME = "HousePricingModel_Karthik"
-MODEL_VERSION = "latest"  # Change to specific version if needed
-model_path = f"models:/{MODEL_NAME}/{MODEL_VERSION}"
+MODEL_VERSION = "latest"  # Change if you want a specific version
 local_model_path = f"./local_models/{MODEL_NAME}/{MODEL_VERSION}"
 
-# Check if the model already exists locally, if not, download it
+# Load model once at startup
 if not os.path.exists(local_model_path):
     os.makedirs(local_model_path, exist_ok=True)
-    model = mlflow.sklearn.load_model(model_path)
+    model = mlflow.sklearn.load_model(f"models:/{MODEL_NAME}/{MODEL_VERSION}")
     mlflow.sklearn.save_model(model, local_model_path)
 else:
     model = mlflow.sklearn.load_model(local_model_path)
 
-# model = load_model("./house_pricing_pipeline") # due to out of memory errors, the model will be stored here
+# Initialize API Router
+router = APIRouter()
 
 class HouseFeatures(BaseModel):
     Suburb: str
