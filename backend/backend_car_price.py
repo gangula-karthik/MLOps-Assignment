@@ -2,16 +2,24 @@
 import pandas as pd
 from pycaret.regression import load_model, predict_model
 from fastapi import FastAPI
-from fastapi import APIRouter
-import uvicorn
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+import uvicorn
 
-# Create the app
-router = APIRouter()
+# Create the FastAPI app
+app = FastAPI()
+
+# Allow CORS from all origins
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Load trained Pipeline
-model = load_model("./best_cb_model")
-
+model = load_model("backend/best_cb_model")
 
 # Define input/output models using Pydantic
 class InputModel(BaseModel):
@@ -27,14 +35,16 @@ class InputModel(BaseModel):
     Seats: float
     Brand: str
 
-
 class OutputModel(BaseModel):
     prediction: float
 
-
 # Define predict function
-@router.post("/car_sales_weijun/predict", response_model=OutputModel)
+@app.post("/car_sales_weijun/predict", response_model=OutputModel)
 def predict(data: InputModel):
     data_df = pd.DataFrame([data.dict()])
     predictions = predict_model(model, data=data_df)
     return {"prediction": predictions["prediction_label"].iloc[0]}
+
+# Run the app
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8000)

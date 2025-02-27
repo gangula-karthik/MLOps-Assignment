@@ -28,14 +28,20 @@ The notebook focuses on predicting car prices using a dataset of used car prices
 Before running the notebook, ensure you have the following Python libraries installed:
 
 ```bash
-pip install pandas numpy seaborn matplotlib mlflow scikit-learn pycaret
+pip install pandas numpy seaborn matplotlib mlflow scikit-learn pycaret dagshub
 ```
 
-Additionally, ensure that MLflow is set up for tracking experiments:
+Additionally, set up MLflow for tracking experiments with Dagshub:
 
 ```python
 import mlflow
-mlflow.set_tracking_uri(uri="http://localhost:5000")
+import dagshub  
+
+# Initialize Dagshub tracking
+dagshub.init(repo_owner="gangula-karthik", repo_name="MLOps-Assignment", mlflow=True)  
+
+# Set MLflow tracking URI to Dagshub
+mlflow.set_tracking_uri("https://dagshub.com/gangula-karthik/MLOps-Assignment.mlflow")
 mlflow.set_experiment("MLOPS")
 ```
 
