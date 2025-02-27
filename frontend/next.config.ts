@@ -3,14 +3,38 @@
  * This is especially useful for Docker builds.
  */
 import './src/env.js';
+import { NextConfig } from 'next';
 
-import type { NextConfig } from 'next';
-
-const nextConfig = {
+const nextConfig: NextConfig = {
   reactStrictMode: true,
   eslint: {
-    ignoreDuringBuilds: true
-  }
-} satisfies NextConfig;
+    ignoreDuringBuilds: true,
+  },
+  rewrites: async () => {
+    return [
+      {
+        source: "/api/py/:path*",
+        destination:
+          process.env.NODE_ENV === "development"
+            ? "http://127.0.0.1:8000/api/py/:path*"
+            : "/api/py/:path*",
+      },
+      {
+        source: "/docs",
+        destination:
+          process.env.NODE_ENV === "development"
+            ? "http://127.0.0.1:8000/api/py/docs"
+            : "/api/py/docs",
+      },
+      {
+        source: "/openapi.json",
+        destination:
+          process.env.NODE_ENV === "development"
+            ? "http://127.0.0.1:8000/api/py/openapi.json"
+            : "/api/py/openapi.json",
+      },
+    ];
+  },
+};
 
 export default nextConfig;
