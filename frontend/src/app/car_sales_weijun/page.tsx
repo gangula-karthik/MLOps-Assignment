@@ -130,6 +130,28 @@ export default function Home() {
                     <label className="block text-sm font-medium text-gray-700">Seats</label>
                     <Input type="number" name="Seats" value={formValues.Seats} onChange={handleInputChange} required min="1" />
                   </div>
+                  <div>
+                  <label className="block text-sm font-medium text-gray-700">Year</label>
+                  <Input
+                    type="number"
+                    name="Year"
+                    value={formValues.Year}
+                    onChange={handleInputChange}
+                    required
+                    min="1900"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Kilometers Driven</label>
+                  <Input
+                    type="number"
+                    name="Kilometers_Driven"
+                    value={formValues.Kilometers_Driven}
+                    onChange={handleInputChange}
+                    required
+                    min="1"
+                  />
+                </div>
                   <Button type="submit" color="primary" className="w-full">
                     Get Prediction
                   </Button>
