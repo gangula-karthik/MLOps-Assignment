@@ -35,7 +35,7 @@ export default function Home() {
     e.preventDefault();
     console.log("Form Values:", formValues);
     try {
-      const response = await fetch("https://mlops-assignment-734580083911.asia-east1.run.app//api2/car_sales_weijun/predict", {
+      const response = await fetch("https://mlops-assignment-734580083911.us-central1.run.app/api2/car_sales_weijun/predict", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

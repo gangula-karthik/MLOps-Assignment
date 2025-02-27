@@ -71,7 +71,7 @@ export default function Home() {
     setApiResponse(null);
     setApiError(false);
     try {
-      const response = await fetch('https://mlops-assignment-734580083911.asia-east1.run.app/api1/house_pricing_karthik/predict', {
+      const response = await fetch('https://mlops-assignment-734580083911.us-central1.run.app/api1/house_pricing_karthik/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
