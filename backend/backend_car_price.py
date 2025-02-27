@@ -10,7 +10,7 @@ from pydantic import BaseModel
 router = APIRouter()
 
 # Load trained Pipeline
-model = load_model("../notebooks/weijun/best_cb_model")
+model = load_model("./best_cb_model")
 
 
 # Define input/output models using Pydantic
