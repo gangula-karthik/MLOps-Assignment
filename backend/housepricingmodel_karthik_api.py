@@ -47,5 +47,6 @@ class PredictionOutput(BaseModel):
 @router.post("/house_pricing_karthik/predict", response_model=PredictionOutput)
 def predict_price(data: HouseFeatures):
     df = pd.DataFrame([data.dict()])
+    df['Date'] = pd.to_datetime(df['Date'], format='%d/%m/%Y', errors='coerce')
     prediction = model.predict(df)
     return {"prediction": prediction[0]}
