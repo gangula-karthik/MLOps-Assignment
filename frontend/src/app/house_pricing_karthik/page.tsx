@@ -58,7 +58,6 @@ export default function Home() {
     }
   };
 
-  // Handle selection changes for autocomplete components
   const handleSelectionChange = (name: string, value: any) => {
     setFormValues(prevState => ({
       ...prevState,
