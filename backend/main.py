@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+import uvicorn
+import os
 from housepricingmodel_karthik_api import router as api1_router
 from backend_car_price import router as api2_router
 from wheatseeds_gabriel_api import router as api3_router
@@ -19,4 +21,5 @@ def home():
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
