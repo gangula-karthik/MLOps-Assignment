@@ -38,8 +38,3 @@ def predict(data: InputModel):
     data_df = pd.DataFrame([data.dict()])
     predictions = predict_model(model, data=data_df)
     return {"prediction": predictions["prediction_label"].iloc[0]}
-
-
-if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8000)
-
