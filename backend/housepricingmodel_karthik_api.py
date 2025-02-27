@@ -2,11 +2,11 @@ import os
 import pandas as pd
 import mlflow
 import mlflow.sklearn
+import functools
 from fastapi import APIRouter
 from pydantic import BaseModel
 from typing import Optional
 from dotenv import load_dotenv, find_dotenv
-
 
 # Load environment variables
 load_dotenv(find_dotenv())
@@ -21,13 +21,21 @@ MODEL_NAME = "HousePricingModel_Karthik"
 MODEL_VERSION = "latest"  # Change if you want a specific version
 local_model_path = f"./local_models/{MODEL_NAME}/{MODEL_VERSION}"
 
-# Load model once at startup
-if not os.path.exists(local_model_path):
-    os.makedirs(local_model_path, exist_ok=True)
-    model = mlflow.sklearn.load_model(f"models:/{MODEL_NAME}/{MODEL_VERSION}")
-    mlflow.sklearn.save_model(model, local_model_path)
-else:
-    model = mlflow.sklearn.load_model(local_model_path)
+# Ensure local model directory exists
+os.makedirs(local_model_path, exist_ok=True)
+
+# Lazy load function for the model
+@functools.lru_cache(maxsize=1)
+def get_model():
+    """Loads and caches the ML model on first use."""
+    model_path = f"models:/{MODEL_NAME}/{MODEL_VERSION}"
+    
+    # Check if the model is already downloaded
+    if not os.path.exists(os.path.join(local_model_path, "MLmodel")):
+        model = mlflow.sklearn.load_model(model_path)
+        mlflow.sklearn.save_model(model, local_model_path)
+    
+    return mlflow.sklearn.load_model(local_model_path)
 
 # Initialize API Router
 router = APIRouter()
@@ -55,7 +63,10 @@ class PredictionOutput(BaseModel):
 
 @router.post("/house_pricing_karthik/predict", response_model=PredictionOutput)
 def predict_price(data: HouseFeatures):
+    """Predicts house price using the ML model."""
+    model = get_model()  # Load model lazily
     df = pd.DataFrame([data.dict()])
     df['Date'] = pd.to_datetime(df['Date'], format='%d/%m/%Y', errors='coerce')
+    
     prediction = model.predict(df)
     return {"prediction": prediction[0]}
