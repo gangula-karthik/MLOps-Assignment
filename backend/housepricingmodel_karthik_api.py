@@ -1,6 +1,7 @@
 import pandas as pd
 import mlflow
 import mlflow.sklearn
+from pycaret.regression import load_model
 from pydantic import BaseModel
 import os
 from typing import Optional
@@ -14,11 +15,13 @@ load_dotenv(find_dotenv())
 mlflow_username = os.environ["MLFLOW_TRACKING_USERNAME"]
 mlflow_password = os.environ["MLFLOW_TRACKING_PASSWORD"]
 
-mlflow.set_tracking_uri("https://dagshub.com/gangula-karthik/MLOps-Assignment.mlflow")  
+# mlflow.set_tracking_uri("https://dagshub.com/gangula-karthik/MLOps-Assignment.mlflow")  
 
-MODEL_NAME = "HousePricingModel_Karthik"
-MODEL_VERSION = "latest"  # Change to specific version if needed
-model = mlflow.sklearn.load_model(f"models:/{MODEL_NAME}/{MODEL_VERSION}")
+# MODEL_NAME = "HousePricingModel_Karthik"
+# MODEL_VERSION = "latest"  # Change to specific version if needed
+# model = mlflow.sklearn.load_model(f"models:/{MODEL_NAME}/{MODEL_VERSION}")
+
+model = load_model("./house_pricing_pipeline.pkl") # due to out of memory errors, the model will be stored here
 
 class HouseFeatures(BaseModel):
     Suburb: str
@@ -43,6 +46,6 @@ class PredictionOutput(BaseModel):
 
 @router.post("/house_pricing_karthik/predict", response_model=PredictionOutput)
 def predict_price(data: HouseFeatures):
-    df = pd.DataFrame([data.dict()])  # convert input to DataFrame
-    prediction = model.predict(df)  # making prediction
-    return {"prediction": prediction[0]}  # return JSON response
+    df = pd.DataFrame([data.dict()])
+    prediction = model.predict(df)
+    return {"prediction": prediction[0]}

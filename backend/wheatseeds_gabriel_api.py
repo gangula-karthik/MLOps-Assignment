@@ -6,6 +6,7 @@ from pydantic import BaseModel
 import os
 from dotenv import load_dotenv, find_dotenv
 from fastapi import APIRouter
+from pycaret.classification import load_model
 
 
 # Initialize FastAPI app
@@ -19,18 +20,20 @@ load_dotenv(find_dotenv())  # Ensure .env file is found and loaded
 mlflow_username = os.getenv("MLFLOW_TRACKING_USERNAME")
 mlflow_password = os.getenv("MLFLOW_TRACKING_PASSWORD")
 
-# Set MLflow tracking URI for model registry
-mlflow.set_tracking_uri("https://dagshub.com/loheegenegabriel/MLOps-Assignment.mlflow")  # Replace with your project URI
+# # Set MLflow tracking URI for model registry
+# mlflow.set_tracking_uri("https://dagshub.com/loheegenegabriel/MLOps-Assignment.mlflow")  # Replace with your project URI
 
-# Model details (adjust model name and version accordingly)
-MODEL_NAME = "WheatSeedModel_Gabriel"  # Update this to match your model name
-MODEL_VERSION = "latest"  # Update this to a specific version or "latest"
+# # Model details (adjust model name and version accordingly)
+# MODEL_NAME = "WheatSeedModel_Gabriel"  # Update this to match your model name
+# MODEL_VERSION = "latest"  # Update this to a specific version or "latest"
 
-# Load the model
-try:
-    model = mlflow.sklearn.load_model(f"models:/{MODEL_NAME}/{MODEL_VERSION}")
-except Exception as e:
-    raise RuntimeError(f"Failed to load model: {e}")
+# # Load the model
+# try:
+#     model = mlflow.sklearn.load_model(f"models:/{MODEL_NAME}/{MODEL_VERSION}")
+# except Exception as e:
+#     raise RuntimeError(f"Failed to load model: {e}")
+
+model = load_model("./wheat_classifier_pipeline.pkl") # due to out of memory errors, the model will be stored here
 
 # Input model: Wheat features
 class WheatFeatures(BaseModel):
