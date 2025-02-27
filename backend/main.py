@@ -15,3 +15,8 @@ app.include_router(api3_router, prefix="/api3", tags=["API 3"])
 @app.get("/")
 def home():
     return {"message": "Welcome to the Merged FastAPI App!"}
+
+
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
