@@ -29,8 +29,8 @@ class PredictionResult(BaseModel):
     prediction: float
 
 # Prediction endpoint
-@router.post("/car_sales_weijun/predict", response_model=CarFeatures)
-def predict(data: PredictionResult):
+@router.post("/car_sales_weijun/predict", response_model=PredictionResult)
+def predict(data: CarFeatures):
     data_df = pd.DataFrame([data.dict()])
     predictions = predict_model(model, data=data_df)
     return {"prediction": predictions["prediction_label"].iloc[0]}  
