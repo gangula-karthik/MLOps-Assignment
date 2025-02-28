@@ -48,7 +48,9 @@ export default function Home() {
       alert("Please upload a valid CSV file.");
     }
   };
-
+  interface PredictionResponse {
+    prediction: number;
+  }
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form Values:", formValues);
@@ -63,7 +65,7 @@ export default function Home() {
         }
       );
 
-      const data = await response.json();
+      const data: PredictionResponse = await response.json(); 
       setPrediction(Math.round(data.prediction).toString());
     } catch (error) {
       console.error("Error:", error);
