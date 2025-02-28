@@ -69,7 +69,7 @@ export default function Home() {
     }));
   };
 
-  // Handle file change for batch prediction
+  // Handle the file change for batch prediction
   const handleFileChange = (event:any) => {
     const uploadedFile = event.target.files ? event.target.files[0] : null;
     setFile(uploadedFile);
