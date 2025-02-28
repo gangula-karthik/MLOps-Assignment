@@ -56,6 +56,8 @@ export default function Home() {
                 <ResourceLink href="https://ml-ops-assignment.vercel.app/house_pricing_karthik" icon={<FaRocket />} text="Deployed App" />
                 <ResourceLink href="https://youtube.com" icon={<FaYoutube />} text="YouTube Demo" />
                 <ResourceLink href="https://github.com/gangula-karthik/MLOps-Assignment" icon={<FaGithub />} text="GitHub Repository" />
+                <ResourceLink href="https://dagshub.com/gangula-karthik/MLOps-Assignment/experiments" icon={<FaGithub />} text="DAGsHub Repository" />
+                <ResourceLink href="https://dagshub.com/gangula-karthik/MLOps-Assignment.mlflow/" icon={<FaGithub />} text="MLflow Remote Server" />
               </div>
             </CardBody>
           </Card>
