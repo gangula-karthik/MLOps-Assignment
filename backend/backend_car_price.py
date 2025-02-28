@@ -46,34 +46,32 @@ async def batch_predict(file: UploadFile = File(...)):
     if not file.filename.endswith(".csv"):
         return {"error": "Invalid file type. Please upload a CSV file."}
 
-    # Read the file into a DataFrame
+    # Read the file content
+    content = await file.read()
+    
     try:
-        content = await file.read()
-        df = pd.read_csv(StringIO(content.decode('utf-8')))
+        # Decode the CSV content
+        df = pd.read_csv(StringIO(content.decode("utf-8")))
     except Exception as e:
         return {"error": f"Error reading the file: {str(e)}"}
 
-    # Check if the CSV has required columns
+    # Required columns
     required_columns = [
         "Location", "Year", "Kilometers_Driven", "Fuel_Type", "Transmission", 
         "Owner_Type", "Mileage", "Engine", "Power", "Seats", "Brand"
     ]
-    if not all(col in df.columns for col in required_columns):
-        return {"error": f"Missing required columns. Expected columns: {required_columns}"}
+    
+    # Validate columns
+    missing_columns = [col for col in required_columns if col not in df.columns]
+    if missing_columns:
+        return {"error": f"Missing required columns: {missing_columns}"}
 
     # Make predictions
     predictions = predict_model(model, data=df)
     
     # Add predictions to the DataFrame
-    df['Prediction'] = predictions["prediction_label"]
+    df["Prediction"] = predictions["prediction_label"]
 
-    # Generate a unique filename for the result CSV
-    result_filename = f"batch_predictions_{uuid.uuid4()}.csv"
-    result_path = os.path.join("results", result_filename)
+    # Convert DataFrame to JSON and return it
+    return df.to_dict(orient="records")
 
-    # Save the DataFrame with predictions
-    os.makedirs("results", exist_ok=True)
-    df.to_csv(result_path, index=False)
-
-    # Return the file as a response
-    return FileResponse(result_path, filename=result_filename, media_type="text/csv")
