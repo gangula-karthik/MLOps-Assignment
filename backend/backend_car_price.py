@@ -66,12 +66,14 @@ async def batch_predict(file: UploadFile = File(...)):
     if missing_columns:
         return {"error": f"Missing required columns: {missing_columns}"}
 
-    # Make predictions
-    predictions = predict_model(model, data=df)
-    
-    # Add predictions to the DataFrame
-    df["Prediction"] = predictions["prediction_label"]
+    try:
+        predictions = predict_model(model, data=df)
+        df["Prediction"] = predictions["prediction_label"]
+        # Convert DataFrame to JSON and return it
+        return df.to_dict(orient="records")
+    except Exception as e:
+        return {"error": f"Error during prediction: {str(e)}"}
 
-    # Convert DataFrame to JSON and return it
-    return df.to_dict(orient="records")
+    
+    #return df.to_dict(orient="records")
 
