@@ -63,7 +63,7 @@ export default function Home() {
         }
       );
 
-      const data: PredictionResponse = await response.json(); 
+      const data = await response.json(); 
       setPrediction((data.prediction).toString());
     } catch (error) {
       console.error("Error:", error);
