@@ -53,9 +53,9 @@ export default function Home() {
             </CardHeader>
             <CardBody className="p-6">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <ResourceLink href="https://deployed-link.com" icon={<FaRocket />} text="Deployed App" />
+                <ResourceLink href="https://ml-ops-assignment.vercel.app/house_pricing_karthik" icon={<FaRocket />} text="Deployed App" />
                 <ResourceLink href="https://youtube.com" icon={<FaYoutube />} text="YouTube Demo" />
-                <ResourceLink href="https://github.com" icon={<FaGithub />} text="GitHub Repository" />
+                <ResourceLink href="https://github.com/gangula-karthik/MLOps-Assignment" icon={<FaGithub />} text="GitHub Repository" />
               </div>
             </CardBody>
           </Card>

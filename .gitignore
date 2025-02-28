@@ -47,3 +47,4 @@
 artifacts
 **/.env
 /data
+notebooks/karthik/house_pricing_pipeline.pkl
