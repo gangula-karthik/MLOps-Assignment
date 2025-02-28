@@ -1,0 +1,31 @@
+data:
+  path: "../../data/raw/01_Melbourne_Residential.csv"
+
+features:
+  numerical: ["Distance", "Bedroom2", "Bathroom", "Car", "Landsize", "YearBuilt", "Lattitude", "Longtitude"]
+  categorical: ["Suburb", "Type", "Method", "Seller", "CouncilArea", "Region"]
+  ordinal:
+    Type: ["t", "h", "u"]
+    Method: ["PI", "S", "SP", "VB", "SA", "SS", "W", "NB", "PN", "SN", "N/A"]
+  create_date_columns: ["day", "month", "year"]
+
+model:
+  target: "Price"
+  ignore_features: ["Propertycount", "Postcode", "BuildingArea", "Address"]
+  imputation_type: "iterative"
+  numeric_imputation: "knn"
+  categorical_imputation: "mode"
+  polynomial_features: true
+  polynomial_degree: 2
+  remove_multicollinearity: true
+  multicollinearity_threshold: 0.75
+  normalize: true
+  session_id: 123
+  fold: 10
+  feature_selection: true
+  feature_selection_estimator: "rf"
+  n_features_to_select: 0.8
+
+experiment:
+  log_experiment: "dagshub"
+  experiment_name: "house_pricing"
