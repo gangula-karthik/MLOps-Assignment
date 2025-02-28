@@ -27,15 +27,15 @@ os.makedirs(local_model_path, exist_ok=True)
 # Lazy load function for the model
 @functools.lru_cache(maxsize=1)
 def get_model():
-    """Loads and caches the ML model on first use."""
-    model_path = f"models:/{MODEL_NAME}/{MODEL_VERSION}"
-    
-    # Check if the model is already downloaded
-    if not os.path.exists(os.path.join(local_model_path, "MLmodel")):
-        model = mlflow.sklearn.load_model(model_path)
+    """Loads and caches the ML model on first use"""
+    # First try to load from local cache
+    try:
+        return mlflow.sklearn.load_model(local_model_path)
+    except Exception as e:
+        print(f"Local model not found, downloading from registry: {str(e)}")
+        model = mlflow.sklearn.load_model(f"models:/{MODEL_NAME}/{MODEL_VERSION}")
         mlflow.sklearn.save_model(model, local_model_path)
-    
-    return mlflow.sklearn.load_model(local_model_path)
+        return model
 
 # Initialize API Router
 router = APIRouter()
