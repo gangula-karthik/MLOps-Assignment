@@ -1,0 +1,39 @@
+Suburb,Address,Rooms,Type,Method,Seller,Date,Distance,Postcode,Bedroom2,Bathroom,Car,Landsize,BuildingArea,YearBuilt,CouncilArea,Lattitude,Longtitude,Region,Propertycount
+Airport West,154 Halsey Rd,3,t,PI,Nelson,3/9/2023,13.5,3042,3,2,1,303,225.0,2016.0,Moonee Valley,-37.718,144.878,Western Metropolitan,3464
+Albert Park,105 Kerferd Rd,2,h,S,hockingstuart,3/9/2023,3.3,3206,2,1,0,120,82.0,1900.0,Port Phillip,-37.8459,144.9555,Southern Metropolitan,3280
+Albert Park,85 Richardson St,2,h,S,Thomson,3/9/2023,3.3,3206,2,1,0,159,,,Port Phillip,-37.845,144.9538,Southern Metropolitan,3280
+Alphington,6 Smith St,4,h,S,Brace,3/9/2023,6.4,3078,3,2,4,853,263.0,1930.0,Darebin,-37.7707,145.0318,Northern Metropolitan,2211
+Alphington,5/6 Yarralea St,3,h,S,Jellis,3/9/2023,6.4,3078,3,2,2,208,,2013.0,Yarra,-37.7854,145.0325,Northern Metropolitan,2211
+Altona,158 Queen St,3,h,VB,Greg,3/9/2023,13.8,3018,3,2,1,352,242.0,2015.0,Hobsons Bay,-37.87,144.825,Western Metropolitan,5301
+Altona North,45 Hearn St,5,h,S,FN,3/9/2023,11.1,3025,5,3,6,592,251.0,1965.0,Hobsons Bay,-37.8388,144.8567,Western Metropolitan,5132
+Altona North,4 Knapp St,3,h,S,Jas,3/9/2023,11.1,3025,3,1,2,533,117.0,1970.0,Hobsons Bay,-37.8291,144.835,Western Metropolitan,5132
+Armadale,8/19 Mercer Rd,2,u,S,Jellis,3/9/2023,6.3,3143,2,1,1,0,76.0,1964.0,Stonnington,-37.8543,145.0262,Southern Metropolitan,4836
+Ascot Vale,2/43 Roxburgh St,2,u,S,Nelson,3/9/2023,5.9,3032,3,1,2,0,,,Moonee Valley,-37.7756,144.9165,Western Metropolitan,6567
+Ashburton,61 Dent St,4,h,S,Marshall,3/9/2023,11.0,3147,4,3,2,753,399.0,2015.0,Boroondara,-37.8669,145.0767,Southern Metropolitan,3052
+Ashwood,18 Teck St,2,h,S,Tim,3/9/2023,12.2,3147,2,1,1,583,,1950.0,Monash,-37.8693,145.1082,Southern Metropolitan,2894
+Avondale Heights,8 Norma Ct,3,h,S,Moonee,3/9/2023,10.5,3034,3,1,1,593,118.0,1970.0,Moonee Valley,-37.7677,144.8674,Western Metropolitan,4502
+Avondale Heights,9 Rogerson St,3,h,SP,Moonee,3/9/2023,10.5,3034,3,1,1,0,103.0,1980.0,Moonee Valley,-37.7634,144.8611,Western Metropolitan,4502
+Balaclava,18 Linton St,4,h,S,Gary,3/9/2023,6.6,3183,3,2,1,244,180.0,1900.0,Port Phillip,-37.8668,144.9928,Southern Metropolitan,2952
+Balwyn,166 Gordon St,2,h,S,Marshall,3/9/2023,9.7,3103,2,1,1,659,123.0,1920.0,Boroondara,-37.8094,145.0807,Southern Metropolitan,5682
+Balwyn,36 Narrak Rd,4,h,VB,Marshall,3/9/2023,9.7,3103,4,2,2,715,218.0,1985.0,Boroondara,-37.811,145.0958,Southern Metropolitan,5682
+Balwyn,2/16 Westminster St,2,t,S,Noel,3/9/2023,9.7,3103,2,1,1,208,129.0,2000.0,Boroondara,-37.8128,145.0975,Southern Metropolitan,5682
+Balwyn North,3/41 Clifton St,3,t,S,hockingstuart,3/9/2023,9.2,3104,3,2,2,260,167.0,2000.0,Boroondara,-37.7966,145.1021,Southern Metropolitan,7809
+Balwyn North,153 Doncaster Rd,3,h,PI,Jellis,3/9/2023,9.2,3104,3,2,1,778,154.0,1950.0,Boroondara,-37.7939,145.0789,Southern Metropolitan,7809
+Balwyn North,19 Jacka St,4,h,S,Jellis,3/9/2023,9.2,3104,4,4,3,1135,275.0,1960.0,Boroondara,-37.8014,145.0892,Southern Metropolitan,7809
+Balwyn North,32 Jaserfold St,2,h,S,Jellis,3/9/2023,9.2,3104,2,1,1,253,,,Boroondara,-37.7912,145.085,Southern Metropolitan,7809
+Bentleigh,5/205 Centre Rd,2,u,S,hockingstuart,3/9/2023,13.0,3204,2,1,2,202,,1974.0,Glen Eira,-37.9165,145.0259,Southern Metropolitan,6795
+Bentleigh,22 Hobart St,2,h,S,Woodards,3/9/2023,13.0,3204,2,1,2,599,,,Glen Eira,-37.925,145.046,Southern Metropolitan,6795
+Bentleigh,1/236 Patterson Rd,3,u,S,hockingstuart,3/9/2023,13.0,3204,3,1,2,348,121.0,1950.0,Glen Eira,-37.9273,145.0479,Southern Metropolitan,6795
+Bentleigh,2/531 South Rd,3,t,PI,Ray,3/9/2023,13.0,3204,3,2,2,362,,1997.0,Glen Eira,-37.9336,145.043,Southern Metropolitan,6795
+Bentleigh East,18 Mervin St,2,h,S,hockingstuart,3/9/2023,13.9,3165,2,1,2,768,,,Glen Eira,-37.9305,145.0547,Southern Metropolitan,10969
+Bentleigh East,1/69 Purtell St,3,t,PI,hockingstuart,3/9/2023,13.9,3165,3,1,2,287,,,Glen Eira,-37.9261,145.0566,Southern Metropolitan,10969
+Bentleigh East,30 Veronica St,2,h,S,Buxton,3/9/2023,13.9,3165,2,2,1,176,125.0,2008.0,Glen Eira,-37.9237,145.0763,Southern Metropolitan,10969
+Box Hill,32 Margaret St,4,h,S,hockingstuart,3/9/2023,13.1,3128,4,2,2,697,255.0,1940.0,Whitehorse,-37.8151,145.135,Eastern Metropolitan,4605
+Braybrook,132 Duke St,3,h,S,Barry,3/9/2023,10.8,3019,3,2,4,700,,,Maribyrnong,-37.7824,144.8469,Western Metropolitan,3589
+Braybrook,25 Lily St,2,h,S,Barry,3/9/2023,10.8,3019,2,1,1,566,75.0,1950.0,Maribyrnong,-37.7839,144.8524,Western Metropolitan,3589
+Brighton,802 Hampton St,3,h,VB,Buxton,3/9/2023,11.2,3186,3,2,2,663,,1940.0,Bayside,-37.9159,145.0068,Southern Metropolitan,10579
+Brighton,18 Rooding St,3,h,S,Buxton,3/9/2023,11.2,3186,3,1,2,366,156.0,1920.0,Bayside,-37.9038,145.0001,Southern Metropolitan,10579
+Brighton East,7 Balfour St,4,h,S,hockingstuart,3/9/2023,10.7,3187,4,2,2,682,240.0,1960.0,Bayside,-37.9205,145.0122,Southern Metropolitan,6938
+Brighton East,4 Marriage Rd,4,h,S,Nick,3/9/2023,10.7,3187,4,2,2,617,268.0,1940.0,Bayside,-37.9187,145.007,Southern Metropolitan,6938
+Brighton East,244a South Rd,3,h,SP,Marshall,3/9/2023,10.7,3187,3,1,1,329,117.0,1930.0,Bayside,-37.9317,145.0218,Southern Metropolitan,6938
+Brunswick,8/55 De Carle St,2,u,S,Brad,3/9/2023,5.2,3056,2,1,2,0,,1970.0,Moreland,-37.7593,144.9652,Northern Metropolitan,11918
