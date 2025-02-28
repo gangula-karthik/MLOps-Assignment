@@ -63,8 +63,8 @@ export default function Home() {
         }
       );
 
-      const data = await response.json(); 
-      setPrediction((data.prediction).toString());
+      const data = (await response.json()) as { prediction: string };
+      setPrediction(data.prediction.toString());      
     } catch (error) {
       console.error("Error:", error);
       setPrediction("Failed to fetch prediction");
