@@ -3,6 +3,7 @@
 **/__pycache__/
 **/venv/
 /backend/house_pricing_pipeline.pkl
+/backend/local_models/
 **/logs.log
 
 # dependencies

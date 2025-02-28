@@ -7,7 +7,7 @@ from io import StringIO
 from pydantic import BaseModel
 import uuid
 
-# Create the app
+# Create the router
 router = APIRouter()
 
 # Load the trained model
@@ -27,8 +27,7 @@ class InputModel(BaseModel):
     Seats: float
     Brand: str
 
-
-class OutputModel(BaseModel):
+class PredictionResult(BaseModel):
     prediction: float
 
 
