@@ -32,7 +32,7 @@ class PredictionResult(BaseModel):
 
 
 # Define prediction endpoint for single prediction
-@router.post("/car_sales_weijun/predict", response_model=OutputModel)
+@router.post("/car_sales_weijun/predict", response_model=PredictionResult)
 def predict(data: InputModel):
     data_df = pd.DataFrame([data.dict()])
     predictions = predict_model(model, data=data_df)
