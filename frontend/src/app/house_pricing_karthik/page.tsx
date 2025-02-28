@@ -218,6 +218,7 @@ export default function Home() {
                         </label>
                         <Input
                           type="number"
+                          step="any"
                           name="Distance"
                           value={formValues.Distance}
                           onChange={handleInputChange}
@@ -348,6 +349,7 @@ export default function Home() {
                         </label>
                         <Input
                           type="number"
+                          step="any"
                           name="Landsize"
                           value={formValues.Landsize}
                           onChange={handleInputChange}
@@ -364,6 +366,7 @@ export default function Home() {
                         </label>
                         <Input
                           type="number"
+                          step="any"
                           name="Lattitude"
                           value={formValues.Lattitude}
                           onChange={handleInputChange}
@@ -415,6 +418,7 @@ export default function Home() {
                         <Input
                           type="number"
                           name="Longtitude"
+                          step="any"
                           value={formValues.Longtitude}
                           onChange={handleInputChange}
                           size="sm"
