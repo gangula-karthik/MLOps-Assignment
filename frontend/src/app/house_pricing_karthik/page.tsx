@@ -116,7 +116,7 @@ export default function Home() {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api1/house_pricing_karthik/predict_batch",
+        "https://mlops-assignment-734580083911.us-central1.run.app/api1/house_pricing_karthik/predict_batch",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
