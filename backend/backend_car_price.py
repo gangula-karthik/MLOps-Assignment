@@ -19,7 +19,7 @@ app.add_middleware(
 )
 
 # Load trained Pipeline
-model = load_model("backend/best_cb_model")
+model = load_model("./best_cb_model")
 
 # Define input/output models using Pydantic
 class InputModel(BaseModel):
