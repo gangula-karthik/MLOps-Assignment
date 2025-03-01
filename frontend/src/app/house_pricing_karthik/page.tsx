@@ -309,7 +309,7 @@ export default function Home() {
 
                         <div className="mb-1">
                         <label className="block text-xs font-medium text-gray-700 mb-0.5">
-                          Date
+                          Date Sold
                         </label>
                         <DatePicker                           
                           name="Date"
