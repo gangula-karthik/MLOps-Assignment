@@ -1,26 +1,38 @@
+# import pandas as pd
+# from pycaret.regression import load_model, predict_model
+# from fastapi import FastAPI, File, UploadFile, APIRouter
+# from fastapi.responses import FileResponse
+# import os
+# from io import StringIO
+# from pydantic import BaseModel
+# import uuid
+
+# import os
+# import pandas as pd
+# import io
+# import mlflow
+# import mlflow.sklearn
+# import functools
+# from fastapi import APIRouter, UploadFile, File
+# from pydantic import BaseModel
+# from typing import Optional
+# from dotenv import load_dotenv, find_dotenv
+# from pycaret.regression import load_model, predict_model
+
 import pandas as pd
 from pycaret.regression import load_model, predict_model
-from fastapi import FastAPI, File, UploadFile, APIRouter
-from fastapi.responses import FileResponse
-import os
-from io import StringIO
+from fastapi import APIRouter
+import uvicorn
 from pydantic import BaseModel
-import uuid
 
-import os
-import pandas as pd
-import io
-import mlflow
-import mlflow.sklearn
-import functools
-from fastapi import APIRouter, UploadFile, File
-from pydantic import BaseModel
-from typing import Optional
-from dotenv import load_dotenv, find_dotenv
-from pycaret.regression import load_model, predict_model
+# Create the router
+router = APIRouter()
 
-# Define input/output models using Pydantic
-class InputModel(BaseModel):
+# Load the trained model
+model = load_model("best_cb_model")
+
+# Pydantic models for request and response
+class CarFeatures(BaseModel):
     Location: str
     Year: int
     Kilometers_Driven: int
@@ -36,39 +48,12 @@ class InputModel(BaseModel):
 class PredictionResult(BaseModel):
     prediction: float
 
-# Load the trained model
-# model = load_model("best_cb_model")
-# print('car ok')
-
-
-# Load environment variables
-load_dotenv(find_dotenv())
-
-# Set MLflow credentials
-mlflow_username = os.getenv("MLFLOW_TRACKING_USERNAME")
-mlflow_password = os.getenv("MLFLOW_TRACKING_PASSWORD")
-
-mlflow.set_tracking_uri("https://dagshub.com/gangula-karthik/MLOps-Assignment.mlflow")
-
-MODEL_NAME = "CarPricingModel"
-MODEL_VERSION = "latest"  # You can specify a version like "1" if needed
-local_model_path = f"./local_models/{MODEL_NAME}/{MODEL_VERSION}"
-
-# Ensure local model directory exists
-os.makedirs(local_model_path, exist_ok=True)
-
-model = mlflow.sklearn.load_model(f"models:/{MODEL_NAME}/{MODEL_VERSION}")
-mlflow.sklearn.save_model(model, local_model_path)
-# Create the router
-router = APIRouter()
-
-# Define prediction endpoint for single prediction
+# Prediction endpoint
 @router.post("/car_sales_weijun/predict", response_model=PredictionResult)
-def predict(data: InputModel):
+def predict(data: CarFeatures):
     data_df = pd.DataFrame([data.dict()])
     predictions = predict_model(model, data=data_df)
-    return {"prediction": predictions["prediction_label"].iloc[0]}
-
+    return {"prediction": predictions["prediction_label"].iloc[0]}  
 
 # # Define prediction endpoint for batch prediction
 # @router.post("/car_sales_weijun/batch_predict")
