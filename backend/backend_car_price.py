@@ -7,13 +7,6 @@ from io import StringIO
 from pydantic import BaseModel
 import uuid
 
-# Create the router
-router = APIRouter()
-
-# Load the trained model
-model = load_model("best_cb_model")
-
-
 # Define input/output models using Pydantic
 class InputModel(BaseModel):
     Location: str
@@ -31,6 +24,12 @@ class InputModel(BaseModel):
 class PredictionResult(BaseModel):
     prediction: float
 
+# Load the trained model
+model = load_model("best_cb_model")
+print('car ok')
+
+# Create the router
+router = APIRouter()
 
 # Define prediction endpoint for single prediction
 @router.post("/car_sales_weijun/predict", response_model=PredictionResult)
@@ -78,3 +77,6 @@ def predict(data: InputModel):
     
 #     #return df.to_dict(orient="records")
 
+# # Run the FastAPI server
+# if __name__ == "__main__":
+#     uvicorn.run(app, host="127.0.0.1", port=8000)
