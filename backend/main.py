@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 from housepricingmodel_karthik_api import router as api1_router
 from backend_car_price import router as api2_router
+
 from wheatseeds_gabriel_api import router as api3_router
 
 # Create FastAPI app
@@ -27,7 +28,10 @@ app.include_router(api3_router, prefix="/api3", tags=["API 3"])
 @app.get("/")
 def home():
     return {"message": "Welcome to the Merged FastAPI App!"}
-
+@app.on_event("startup")
+async def startup_event():
+    for route in app.routes:
+        print(route.path)
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)

@@ -27,9 +27,10 @@ from pydantic import BaseModel
 
 # Create the router
 router = APIRouter()
-
 # Load the trained model
 model = load_model("best_cb_model")
+# backend_car_price.py
+print("backend_car_price.py loaded successfully")
 
 # Pydantic models for request and response
 class CarFeatures(BaseModel):
