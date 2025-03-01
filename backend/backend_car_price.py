@@ -7,6 +7,18 @@ from io import StringIO
 from pydantic import BaseModel
 import uuid
 
+import os
+import pandas as pd
+import io
+import mlflow
+import mlflow.sklearn
+import functools
+from fastapi import APIRouter, UploadFile, File
+from pydantic import BaseModel
+from typing import Optional
+from dotenv import load_dotenv, find_dotenv
+from pycaret.regression import load_model, predict_model
+
 # Define input/output models using Pydantic
 class InputModel(BaseModel):
     Location: str
@@ -25,9 +37,24 @@ class PredictionResult(BaseModel):
     prediction: float
 
 # Load the trained model
-model = load_model("best_cb_model")
-print('car ok')
+# model = load_model("best_cb_model")
+# print('car ok')
 
+MODEL_NAME = "CarPricingModel"
+MODEL_VERSION = "latest"  # You can specify a version like "1" if needed
+model = mlflow.sklearn.load_model(f"models:/{MODEL_NAME}/{MODEL_VERSION}")
+model
+# Load environment variables
+load_dotenv(find_dotenv())
+
+# Set MLflow credentials
+mlflow_username = os.getenv("MLFLOW_TRACKING_USERNAME")
+mlflow_password = os.getenv("MLFLOW_TRACKING_PASSWORD")
+
+mlflow.set_tracking_uri("https://dagshub.com/gangula-karthik/MLOps-Assignment.mlflow")
+
+# Ensure local model directory exists
+os.makedirs(local_model_path, exist_ok=True)
 # Create the router
 router = APIRouter()
 
