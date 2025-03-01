@@ -71,42 +71,69 @@ export default function Home() {
     }
   };
 
-  const handleSubmitBatch = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (!batchPredictionFile) {
-      alert("Please upload a CSV file for batch prediction.");
-      return;
+  const BatchUploadComponent = () => {
+    const [file, setFile] = useState<File | null>(null);
+    const [apiError, setApiError] = useState<string | null>(null);
+    const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  
+    interface ApiResponse {
+      success: boolean;
+      downloadUrl?: string;
     }
-
-    setIsLoading(true);
-    setApiError(null);
-    const formData = new FormData();
-    formData.append("file", batchPredictionFile);
-
-    try {
-      const response = await fetch(
-        "https://mlops-assignment-734580083911.us-central1.run.app/api2/car_sales_weijun/batch_predict",
-        {
+  
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      if (event.target.files && event.target.files.length > 0) {
+        setFile(event.target.files[0]);
+      }
+    };
+  
+    const handleSubmitBatch = async () => {
+      if (!file) {
+        setApiError("No file selected.");
+        return;
+      }
+  
+      const formData = new FormData();
+      formData.append("file", file);
+  
+      try {
+        const response = await fetch("/api/upload", {
           method: "POST",
           body: formData,
+        });
+  
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
         }
-      );
-
-      const data = await response.json();
-
-      if (data.success) {
-        setDownloadUrl(data.downloadUrl); // Assuming the API sends a URL to download the results
-      } else {
-        setApiError("Failed to process the file. Please try again.");
+  
+        const data: ApiResponse = await response.json();
+  
+        if (data.success) {
+          setDownloadUrl(data.downloadUrl || "");
+        } else {
+          setApiError("Failed to process the file. Please try again.");
+        }
+      } catch (error) {
+        setApiError("An error occurred while uploading the file.");
       }
-    } catch (error) {
-      console.error("Error:", error);
-      setApiError("Error uploading file. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
+    };
+  
+    return (
+      <div>
+        <input type="file" onChange={handleFileChange} />
+        <button onClick={handleSubmitBatch}>Upload</button>
+        {apiError && <p style={{ color: "red" }}>{apiError}</p>}
+        {downloadUrl && (
+          <p>
+            File processed successfully. <a href={downloadUrl}>Download</a>
+          </p>
+        )}
+      </div>
+    );
   };
+  
+  export default BatchUploadComponent;
+  
 
   const locations = ["Mumbai", "Pune", "Chennai", "Coimbatore", "Hyderabad", "Jaipur", "Kochi", "Kolkata", "Delhi", "Bangalore", "Ahmedabad"];
   const fuelTypes = ["CNG", "Diesel", "Petrol", "LPG", "Electric"];
