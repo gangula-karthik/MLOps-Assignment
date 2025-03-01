@@ -54,7 +54,7 @@ export default function Home() {
             <CardBody className="p-6">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <ResourceLink href="https://ml-ops-assignment.vercel.app/house_pricing_karthik" icon={<FaRocket />} text="Deployed App" />
-                <ResourceLink href="https://youtube.com" icon={<FaYoutube />} text="YouTube Demo" />
+                <ResourceLink href="https://youtu.be/3A7-HXlz9pw" icon={<FaYoutube />} text="YouTube Demo" />
                 <ResourceLink href="https://github.com/gangula-karthik/MLOps-Assignment" icon={<FaGithub />} text="GitHub Repository" />
                 <ResourceLink href="https://dagshub.com/gangula-karthik/MLOps-Assignment/experiments" icon={<FaGithub />} text="DAGsHub Repository" />
                 <ResourceLink href="https://dagshub.com/gangula-karthik/MLOps-Assignment.mlflow/" icon={<FaGithub />} text="MLflow Remote Server" />
