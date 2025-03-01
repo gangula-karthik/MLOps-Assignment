@@ -68,7 +68,7 @@ cookiecutter https://github.com/mihail911/e2eml-cookiecutter
 - MLflow: Utilized for tracking experiments, including parameter logging, metrics, and model versioning, to enhance model management and reproducibility.
 - DVC: Data Version Control was used to track and manage datasets and their versions, ensuring consistency across all stages of the project.
 - HYDRA: Employed for managing and configuring the application's environment, making it easier to switch between different setups without changing the codebase.
-- POETRY: Used for dependency management and packaging of the project, ensuring that all necessary libraries are installed and maintained correctly.
+- POETRY: Used for dependency management and packaging of project, ensuring that all necessary libraries are installed and maintained correctly.
 
 **Frontend**
 - Next.js: A React framework for building user interfaces, optimized for a smoother developer experience and high-performance applications.
