@@ -39,41 +39,41 @@ def predict(data: InputModel):
     return {"prediction": predictions["prediction_label"].iloc[0]}
 
 
-# Define prediction endpoint for batch prediction
-@router.post("/car_sales_weijun/batch_predict")
-async def batch_predict(file: UploadFile = File(...)):
-    # Ensure the uploaded file is CSV
-    if not file.filename.endswith(".csv"):
-        return {"error": "Invalid file type. Please upload a CSV file."}
+# # Define prediction endpoint for batch prediction
+# @router.post("/car_sales_weijun/batch_predict")
+# async def batch_predict(file: UploadFile = File(...)):
+#     # Ensure the uploaded file is CSV
+#     if not file.filename.endswith(".csv"):
+#         return {"error": "Invalid file type. Please upload a CSV file."}
 
-    # Read the file content
-    content = await file.read()
+#     # Read the file content
+#     content = await file.read()
     
-    try:
-        # Decode the CSV content
-        df = pd.read_csv(StringIO(content.decode("utf-8")))
-    except Exception as e:
-        return {"error": f"Error reading the file: {str(e)}"}
+#     try:
+#         # Decode the CSV content
+#         df = pd.read_csv(StringIO(content.decode("utf-8")))
+#     except Exception as e:
+#         return {"error": f"Error reading the file: {str(e)}"}
 
-    # Required columns
-    required_columns = [
-        "Location", "Year", "Kilometers_Driven", "Fuel_Type", "Transmission", 
-        "Owner_Type", "Mileage", "Engine", "Power", "Seats", "Brand"
-    ]
+#     # Required columns
+#     required_columns = [
+#         "Location", "Year", "Kilometers_Driven", "Fuel_Type", "Transmission", 
+#         "Owner_Type", "Mileage", "Engine", "Power", "Seats", "Brand"
+#     ]
     
-    # Validate columns
-    missing_columns = [col for col in required_columns if col not in df.columns]
-    if missing_columns:
-        return {"error": f"Missing required columns: {missing_columns}"}
+#     # Validate columns
+#     missing_columns = [col for col in required_columns if col not in df.columns]
+#     if missing_columns:
+#         return {"error": f"Missing required columns: {missing_columns}"}
 
-    try:
-        predictions = predict_model(model, data=df)
-        df["Prediction"] = predictions["prediction_label"]
-        # Convert DataFrame to JSON and return it
-        return df.to_dict(orient="records")
-    except Exception as e:
-        return {"error": f"Error during prediction: {str(e)}"}
+#     try:
+#         predictions = predict_model(model, data=df)
+#         df["Prediction"] = predictions["prediction_label"]
+#         # Convert DataFrame to JSON and return it
+#         return df.to_dict(orient="records")
+#     except Exception as e:
+#         return {"error": f"Error during prediction: {str(e)}"}
 
     
-    #return df.to_dict(orient="records")
+#     #return df.to_dict(orient="records")
 
