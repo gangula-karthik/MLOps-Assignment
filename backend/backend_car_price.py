@@ -40,10 +40,7 @@ class PredictionResult(BaseModel):
 # model = load_model("best_cb_model")
 # print('car ok')
 
-MODEL_NAME = "CarPricingModel"
-MODEL_VERSION = "latest"  # You can specify a version like "1" if needed
-model = mlflow.sklearn.load_model(f"models:/{MODEL_NAME}/{MODEL_VERSION}")
-model
+
 # Load environment variables
 load_dotenv(find_dotenv())
 
@@ -53,8 +50,15 @@ mlflow_password = os.getenv("MLFLOW_TRACKING_PASSWORD")
 
 mlflow.set_tracking_uri("https://dagshub.com/gangula-karthik/MLOps-Assignment.mlflow")
 
+MODEL_NAME = "CarPricingModel"
+MODEL_VERSION = "latest"  # You can specify a version like "1" if needed
+local_model_path = f"./local_models/{MODEL_NAME}/{MODEL_VERSION}"
+
 # Ensure local model directory exists
 os.makedirs(local_model_path, exist_ok=True)
+
+model = mlflow.sklearn.load_model(f"models:/{MODEL_NAME}/{MODEL_VERSION}")
+mlflow.sklearn.save_model(model, local_model_path)
 # Create the router
 router = APIRouter()
 
