@@ -10,7 +10,7 @@ import { DatePicker } from "@heroui/react";
 import { Alert } from "@heroui/alert";
 import { sellers, CouncilAreas } from '../../components/data';
 import { Autocomplete, AutocompleteItem } from "@heroui/autocomplete";
-import axios from 'axios'; // Added missing axios import
+import axios from 'axios';
 
 export default function Home() {
   const [formValues, setFormValues] = useState({
