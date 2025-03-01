@@ -11,7 +11,8 @@ import uuid
 router = APIRouter()
 
 # Load the trained model
-model = load_model("./best_cb_model")
+model = load_model("best_cb_model")
+
 
 # Define input/output models using Pydantic
 class InputModel(BaseModel):
