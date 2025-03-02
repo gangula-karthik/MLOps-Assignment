@@ -6,10 +6,24 @@ import { Card, CardBody } from "@heroui/card";
 import { Button } from "@heroui/button";
 import { Input } from "@heroui/input";
 import { Select, SelectItem } from "@heroui/select";
-import { Alert } from "@heroui/alert"; // To display alerts like "Processing..." or errors
+import { Alert } from "@heroui/alert";
+
+type FormValues = {
+  Location: string;
+  Year: number;
+  Kilometers_Driven: number;
+  Fuel_Type: string;
+  Transmission: string;
+  Owner_Type: string;
+  Mileage: number;
+  Engine: number;
+  Power: number;
+  Seats: number;
+  Brand: string;
+};
 
 export default function Home() {
-  const [formValues, setFormValues] = useState({
+  const [formValues, setFormValues] = useState<FormValues>({
     Location: "",
     Year: 2017,
     Kilometers_Driven: 0,
@@ -31,7 +45,7 @@ export default function Home() {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    
+
     setFormValues((prev) => ({
       ...prev,
       [name]: ["Year", "Kilometers_Driven", "Mileage", "Engine", "Power", "Seats"].includes(name)
@@ -71,37 +85,41 @@ export default function Home() {
     }
   };
 
-  // Batch upload logic moved into Home component
-  const handleSubmitBatch = async () => {
-    if (!batchPredictionFile) {
-      setApiError("No file selected.");
-      return;
-    }
+  // const handleSubmitBatch = async () => {
+  //   if (!batchPredictionFile) {
+  //     alert("Please select a CSV file first");
+  //     return;
+  //   }
 
-    const formData = new FormData();
-    formData.append("file", batchPredictionFile);
+  //   setIsLoading(true);
+  //   setApiError(null);
+  //   setDownloadUrl(null);
 
-    try {
-      const response = await fetch("https://mlops-assignment-734580083911.us-central1.run.app/api2/car_sales_weijun/batch_predict", {
-        method: "POST",
-        body: formData,
-      });
+  //   try {
+  //     const formData = new FormData();
+  //     formData.append("file", batchPredictionFile);
 
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
+  //     const response = await fetch(
+  //       "https://mlops-assignment-734580083911.us-central1.run.app/api2/car_sales_weijun/batch_predict",
+  //       {
+  //         method: "POST",
+  //         body: formData,
+  //       }
+  //     );
 
-      const data = await response.json();
+  //     if (!response.ok) {
+  //       throw new Error(`API error: ${response.status}`);
+  //     }
 
-      if (data.success) {
-        setDownloadUrl(data.downloadUrl || "");
-      } else {
-        setApiError("Failed to process the file. Please try again.");
-      }
-    } catch (error) {
-      setApiError("An error occurred while uploading the file.");
-    }
-  };
+  //     const data = await response.json();
+  //     setDownloadUrl(data.download_url);
+  //   } catch (error) {
+  //     console.error("Batch prediction error:", error);
+  //     setApiError(error instanceof Error ? error.message : "An unknown error occurred");
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
 
   const locations = ["Mumbai", "Pune", "Chennai", "Coimbatore", "Hyderabad", "Jaipur", "Kochi", "Kolkata", "Delhi", "Bangalore", "Ahmedabad"];
   const fuelTypes = ["CNG", "Diesel", "Petrol", "LPG", "Electric"];
@@ -118,7 +136,7 @@ export default function Home() {
     <main className="h-full w-full grid place-items-center p-4">
       <div className="w-full max-w-lg">
         <Tabs aria-label="Car Price Prediction" color="primary" variant="solid" radius="lg" size="lg">
-        <Tab key="predict" title="Predict Price">
+          <Tab key="predict" title="Predict Price">
             <Card>
               <CardBody>
                 <form onSubmit={handleSubmit} className="space-y-2">
