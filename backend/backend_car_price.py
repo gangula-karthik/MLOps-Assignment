@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.INFO)
 # Load the trained model using caching to ensure it's loaded only once
 @lru_cache()
 def get_model():
-    model_path = "best_cb_model"
+    model_path = "best_cb_model_V2"
     logging.info(f"Loading model from: {model_path}")
     
     if not os.path.exists(model_path):
