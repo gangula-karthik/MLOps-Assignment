@@ -25,20 +25,31 @@ from fastapi import APIRouter
 import uvicorn
 from pydantic import BaseModel
 from functools import lru_cache
-
+# from fastapi.logger import logger
+import logging
+import os
 # Create the router
 router = APIRouter()
 # Load the trained model
-import os
-print("Current working directory:", os.getcwd())
+
 
 
 @lru_cache()
 def get_model():
-    return load_model("./best_cb_model")
-
+    model_path = "./best_cb_model"
+    logging.info("Loading model from: %s", model_path,flush=True)
+    logging.info("Model exists: %s", os.path.exists(model_path),flush=True)
+    try:
+        model = load_model(model_path)
+        logging.info("Model loaded successfully")
+        return model
+    except Exception as e:
+        logging.error(f"Error loading model: {str(e)}")
+        raise
 model = get_model()
 
+
+print("Current working directory:", os.getcwd(),flush=True)
 # backend_car_price.py
 print("backend_car_price.py loaded successfully")
 
@@ -66,6 +77,9 @@ def predict(data: CarFeatures):
     predictions = predict_model(model, data=data_df)
     return {"prediction": predictions["prediction_label"].iloc[0]}  
 
+@router.post("/test")
+def test_endpoint():
+    return {"status": "ok"}
 # # Define prediction endpoint for batch prediction
 # @router.post("/car_sales_weijun/batch_predict")
 # async def batch_predict(file: UploadFile = File(...)):
