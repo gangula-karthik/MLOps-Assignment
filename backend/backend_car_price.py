@@ -77,6 +77,11 @@ def predict(data: CarFeatures):
     predictions = predict_model(model, data=data_df)
     return {"prediction": predictions["prediction_label"].iloc[0]}  
 
+@router.post("/car_sales_weijun/predict_V2", response_model=PredictionResult)
+def predict(data: CarFeatures):
+    data_df = pd.DataFrame([data.dict()])
+    predictions = predict_model(model, data=data_df)
+    return {"prediction": predictions["prediction_label"].iloc[0]}  
 @router.post("/test")
 def test_endpoint():
     return {"status": "ok"}
