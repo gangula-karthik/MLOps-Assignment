@@ -11,27 +11,7 @@ router = APIRouter()
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
-
-# Load the trained model using caching to ensure it's loaded only once
-@lru_cache()
-def get_model():
-    model_path = "best_cb_model_V2"
-    logging.info(f"Loading model from: {model_path}")
-    
-    if not os.path.exists(model_path):
-        logging.error(f"Model not found at {model_path}")
-        raise FileNotFoundError(f"Model not found at {model_path}")
-    
-    try:
-        model = load_model(model_path)
-        logging.info("Model loaded successfully")
-        return model
-    except Exception as e:
-        logging.error(f"Error loading model: {e}")
-        raise HTTPException(status_code=500, detail="Error loading model")
-
-# Load the model
-model = get_model()
+model = load_model('best_cb_model_V2')
 
 # Define Pydantic models for request and response
 class CarFeatures(BaseModel):
