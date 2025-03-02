@@ -76,3 +76,4 @@ def predict(data: CarFeatures):
 @router.post("/test")
 def test_endpoint():
     return {"status": "ok"}
+    
