@@ -137,7 +137,7 @@ Please check the [**contributing guide**][code-of-conduct] for details on how to
 
 ## :bookmark_tabs: License
 
-All logos and trademarks are the property of their respective owners.  
+All the logos and trademarks are the property of their respective owners.  
 Everything else is distributed under the **MIT License** .  
 See the [LICENSE][license] file for more informations.
 
