@@ -68,7 +68,7 @@ def predict_price(data: HouseFeatures):
     """Predicts house price using the ML model."""
     model = get_model()  # Load model lazily
     df = pd.DataFrame([data.dict()])
-    df['Date'] = pd.to_datetime(df['Date'], format='%d/%m/%Y', errors='coerce')
+    df['Date'] = pd.to_datetime(df['Date'], format='%m/%d/%Y', errors='coerce')
     
     prediction = model.predict(df)
     return {"prediction": prediction[0]}
