@@ -24,11 +24,21 @@ from pycaret.regression import load_model, predict_model
 from fastapi import APIRouter
 import uvicorn
 from pydantic import BaseModel
+from functools import lru_cache
 
 # Create the router
 router = APIRouter()
 # Load the trained model
-model = load_model("best_cb_model")
+import os
+print("Current working directory:", os.getcwd())
+
+
+@lru_cache()
+def get_model():
+    return load_model("./best_cb_model")
+
+model = get_model()
+
 # backend_car_price.py
 print("backend_car_price.py loaded successfully")
 
