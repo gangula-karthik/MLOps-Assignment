@@ -6,6 +6,7 @@ This assignment was completed by Gangula Karthik, Choy Wei Jun and Gabriel Loh. 
 
 ## Important Links
 
+- Youtube video link: https://youtu.be/3A7-HXlz9pw
 - MLFlow remote tracking server: https://dagshub.com/gangula-karthik/MLOps-Assignment.mlflow/
 - DVC Tracking (configured on CLI to host in s3 bucket): https://dagshub.com/gangula-karthik/MLOps-Assignment?filter=dvc 
 - Frontend: https://ml-ops-assignment.vercel.app/
@@ -58,6 +59,18 @@ cookiecutter https://github.com/mihail911/e2eml-cookiecutter
 ├── poetry.lock       # Poetry lockfile for dependency management  
 ├── pyproject.toml    # Poetry project file defining dependencies and project settings  
 └── README.md         # Main project documentation  
+```
+
+This is the DVC Setup that was done: 
+
+```
+S3 endpoint url: https://dagshub.com/gangula-karthik/MLOps-Assignment.s3
+
+dvc remote add origin s3://dvc
+dvc remote modify origin endpointurl https://dagshub.com/gangula-karthik/MLOps-Assignment.s3
+
+dvc remote modify origin --local access_key_id <KEY>
+dvc remote modify origin --local secret_access_key <KEY>
 ```
 
 **Backend**
