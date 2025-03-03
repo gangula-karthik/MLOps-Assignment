@@ -73,6 +73,21 @@ dvc remote modify origin --local access_key_id <KEY>
 dvc remote modify origin --local secret_access_key <KEY>
 ```
 
+Setting Up the frontend
+```
+cd frontend/
+npm i
+npm run dev
+```
+
+Setting up the backend
+```
+poetry install
+poetry shell
+cd backend
+poetry run python main.py
+```
+
 **Backend**
 - Python
 - Pycaret: An automated machine learning library used to streamline the model development process for all three machine learning tasks.
