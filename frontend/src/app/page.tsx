@@ -2,12 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 import { Card, CardBody, CardHeader } from "@heroui/card";
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
-import { FaHome, FaCar, FaTractor, FaRocket, FaYoutube, FaGithub, FaInfoCircle, FaExternalLinkAlt } from "react-icons/fa";
+import { FaHome, FaCar, FaTractor, FaRocket, FaYoutube, FaGithub } from "react-icons/fa";
 import Link from "next/link";
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@heroui/modal";
-import { Button } from "@heroui/button";
-import { Avatar, AvatarGroup } from "@heroui/avatar";
+import WelcomeModal from "@/components/WelcomeModal"; // Adjust the import path as needed
 
 export default function Home() {
   // Use client-side only state to prevent hydration mismatch
@@ -17,119 +14,29 @@ export default function Home() {
   // Only run after hydration is complete
   useEffect(() => {
     setMounted(true);
-    setIsModalOpen(true);
+    
+    // Check if we've already shown the modal in this session
+    const hasSeenModalThisSession = sessionStorage.getItem('hasSeenWelcomeModal');
+    
+    if (!hasSeenModalThisSession) {
+      setIsModalOpen(true);
+    }
   }, []);
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    // Set flag in sessionStorage to prevent showing the modal again during this session
+    sessionStorage.setItem('hasSeenWelcomeModal', 'true');
+  };
 
   return (
     <main className="min-h-screen w-full flex flex-col items-center justify-center p-6 md:p-12 bg-background">
       {/* Welcome Modal - Only render on client side after mounting */}
       {mounted && (
-        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} backdrop="blur" size="2xl">
-          <ModalContent>
-            <ModalHeader className="flex items-center gap-2 border-b border-border py-3 px-4">
-              <FaInfoCircle className="text-primary" />
-              <span className="font-bold">Welcome to MLOps Project</span>
-            </ModalHeader>
-            <ModalBody className="py-4 px-5 space-y-3">
-                {/* Team Members Avatars */}
-                <div className="flex flex-col items-center justify-center py-2">
-                  <div className="mb-2">
-                    <AvatarGroup isBordered>
-                      <Avatar 
-                      size="lg" 
-                      src="https://media.licdn.com/dms/image/v2/D5603AQGNo_IXOWH0rg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1699194129699?e=1749081600&v=beta&t=RXsrqow-3ADtycrh20xMW1EBptrqevYo4npDWfpm6_c" 
-                      name="GK"
-                      onClick={() => window.open("https://www.linkedin.com/in/karthik-gangula/", "_blank")}
-                      />
-                      <Avatar 
-                      size="lg" 
-                      src="https://media.licdn.com/dms/image/v2/D5603AQGKr0iS6ZW8Hw/profile-displayphoto-shrink_400_400/B56ZWzmGiKHQAg-/0/1742474865941?e=1749081600&v=beta&t=5ExdMgbzCaDES2MIDDM1kABdATMyhPTecqb4rBI_SK8" 
-                      name="WJ"
-                      onClick={() => window.open("https://www.linkedin.com/in/wei-jun-choy/", "_blank")}
-                      />
-                      <Avatar 
-                      size="lg" 
-                      src="https://cdn.discordapp.com/avatars/391279681644527629/f3d164772b4d0463d85487f53c7033e0.webp?size=240" 
-                      name="GL"
-                      onClick={() => window.open("https://github.com/loheegenegabriel", "_blank")}
-                      />
-                    </AvatarGroup>
-                  </div>
-                  <p className="text-sm font-medium">Our Team: Karthik, Weijun, and Gabriel</p>
-                </div>
-                
-                <p className="text-sm text-muted-foreground">
-                  Explore our ML models built by Karthik, Weijun, and Gabriel. Backend is taken down due to budget limits, check out the YouTube demo or GitHub repo instead.
-                </p>
-                <div className="grid grid-cols-2 gap-3">
-                  <Card className="bg-muted/30 border border-border" isHoverable={true}>
-                    <CardBody className="p-3">
-                      <div className="text-left">
-                        <h3 className="font-semibold flex items-center gap-2 text-sm mb-1">
-                          <FaYoutube className="text-red-500" />
-                          Watch Our Demo
-                        </h3>
-                        <p className="text-xs text-muted-foreground mb-2">
-                          Get a quick overview of our project features.
-                        </p>
-                        <Link 
-                          href="https://youtu.be/3A7-HXlz9pw" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1 text-primary hover:underline font-medium text-sm"
-                        >
-                          YouTube Demo <FaExternalLinkAlt className="text-xs" />
-                        </Link>
-                      </div>
-                    </CardBody>
-                  </Card>
-                  
-                  <Card className="bg-muted/30 border border-border" isHoverable={true}>
-                    <CardBody className="p-3">
-                      <div className="text-left">
-                        <h3 className="font-semibold flex items-center gap-2 text-sm mb-1">
-                          <FaGithub />
-                          View our code
-                        </h3>
-                        <p className="text-xs text-muted-foreground mb-2">
-                          Look through our code and implementation.
-                        </p>
-                        <Link 
-                          href="https://github.com/gangula-karthik/MLOps-Assignment" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1 text-primary hover:underline font-medium text-sm"
-                        >
-                          Github Link <FaExternalLinkAlt className="text-xs" />
-                        </Link>
-                      </div>
-                    </CardBody>
-                  </Card>
-                </div>
-            </ModalBody>
-            <ModalFooter className="flex justify-between border-t border-border py-3 px-4">
-              <Button 
-                variant="flat"
-                color="danger" 
-                size="sm"
-                onClick={() => setIsModalOpen(false)}
-              >
-                Close
-              </Button>
-              <Button 
-                variant="shadow"
-                color="primary"
-                size="sm"
-                onClick={() => {
-                  window.open("https://youtu.be/3A7-HXlz9pw", "_blank");
-                  setIsModalOpen(false);
-                }}
-              >
-                Watch Demo
-              </Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
+        <WelcomeModal 
+          isOpen={isModalOpen} 
+          onClose={handleCloseModal} 
+        />
       )}
 
       <div className="w-full max-w-6xl space-y-16">
